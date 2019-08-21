@@ -9,13 +9,12 @@ public class Controller {
 
     static Controller instance = null;
     Map map;
-    int creatureAmount = 100;
-    int foodAmount = 200;
+
 
 
     private Controller( )
     {
-        map = new Map(foodAmount , creatureAmount);
+        map = new Map();
     }
 
     public static synchronized Controller getInstance(){

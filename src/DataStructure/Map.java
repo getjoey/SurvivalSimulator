@@ -11,13 +11,10 @@ public class Map { //square map
 
     Random ran;
     IGameEntity[][] grid;
-    int foodAmount;
-    int creatureAmount;
+    int creatureAmount = Settings.InitialCreatureAmount;
+    int foodAmount = Settings.InitialFoodAmount;
 
-    public Map( int foodAmount, int creatureAmount){
-        this.foodAmount = foodAmount;
-        this.creatureAmount = creatureAmount;
-
+    public Map(){
         grid = new IGameEntity[Settings.gridSize][Settings.gridSize];
         ran = new Random();
 
@@ -34,7 +31,6 @@ public class Map { //square map
 
         //place food
         spawnRandomFood();
-
     }
 
     private void spawnRandomCoordAtEdgeOfMap(){

@@ -1,6 +1,7 @@
 import GameLoop.SimulatorLoop;
 import Settings.Settings;
 import View.SimulationDrawingPane;
+import View.SimulationMainFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,28 +9,11 @@ import java.awt.*;
 public class Main {
 
     public static void main(String[] args) {
+        //Gui
+        SimulationMainFrame View = new SimulationMainFrame();
 
-
-        JFrame frame = new JFrame("Simulator");
-        int size = Settings.gridSize*Settings.squareSize;
-        frame.setSize(size+Settings.paneOffsetX*2,size+Settings.paneOffsetY*2); //square frame
-
-
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        SimulationDrawingPane simulationDrawingPane = SimulationDrawingPane.getInstance();
-        frame.getContentPane().add(simulationDrawingPane, BorderLayout.CENTER);
-
-        frame.setVisible(true);
-
-        //thread
+        //thread -Gameloop (handles drawing to SimulationDrawingPane and gameloop ticks)
         Thread thread = new Thread (new SimulatorLoop());
         thread.start();
-
-
-
-
-
-        System.out.println("Terminated Succesfully");
     }
 }
