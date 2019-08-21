@@ -12,8 +12,12 @@ public class Main {
         //Gui
         SimulationMainFrame View = new SimulationMainFrame();
 
-        //thread -Gameloop (handles drawing to SimulationDrawingPane and gameloop ticks)
-        Thread thread = new Thread (new SimulatorLoop());
-        thread.start();
+        //thread -drawing
+        Thread threadD = new Thread(SimulationDrawingPane.getInstance());
+        threadD.start();
+
+        //thread -Gameloop
+        Thread threadGL = new Thread (new SimulatorLoop());
+        threadGL.start();
     }
 }

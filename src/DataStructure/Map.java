@@ -33,6 +33,7 @@ public class Map { //square map
         //spawnRandomFood();
 
         grid[0][0] = new Creature();
+        grid[1][0] = new Creature();
         grid[1][2] = new Food();
         grid[1][5] = new Food();
         grid[3][2] = new Food();

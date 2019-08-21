@@ -7,7 +7,7 @@ import Settings.*;
 import javax.swing.*;
 import java.awt.*;
 
-public class SimulationDrawingPane extends JPanel {
+public class SimulationDrawingPane extends JPanel implements Runnable{
 
     static SimulationDrawingPane instance = null;
     Controller simulationController;
@@ -22,6 +22,7 @@ public class SimulationDrawingPane extends JPanel {
         }
         return instance;
     }
+
 
 
     public void paintComponent(Graphics g) {
@@ -65,5 +66,11 @@ public class SimulationDrawingPane extends JPanel {
     }
 
 
+    @Override
+    public void run() {
+        while(true){
+            this.repaint();
+        }
+    }
 }
 

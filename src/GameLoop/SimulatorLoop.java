@@ -11,14 +11,14 @@ public class SimulatorLoop implements Runnable {
 
     public SimulatorLoop(){
         simulationController = Controller.getInstance();
-        drawingPane = SimulationDrawingPane.getInstance();
+        //drawingPane = SimulationDrawingPane.getInstance();
     }
 
     @Override
     public void run() {
 
         while(true){
-            drawingPane.repaint();
+            //drawingPane.repaint();
             simulationController.getMoves();
             simulationController.doMoves();
 
