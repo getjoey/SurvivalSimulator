@@ -5,16 +5,22 @@ import Entity.Creature;
 import Entity.IGameEntity;
 import Settings.Settings;
 
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Controller {
 
     static Controller instance = null;
     Map map;
+    HashMap<Creature,Point> moveList;
 
 
 
     private Controller( )
     {
         map = new Map();
+        moveList = new HashMap<>();
     }
 
     public static synchronized Controller getInstance(){
@@ -26,10 +32,10 @@ public class Controller {
 
 
     //each frame this is called
-    public void move()
+    public void getMoves()
     {
+        moveList.clear();
         IGameEntity[][] grid = map.getGrid();
-
         for (int x = 0; x < Settings.gridSize; x++)
         {
             for (int y = 0; y < Settings.gridSize; y++) {
@@ -38,11 +44,21 @@ public class Controller {
                 {
                     if(grid[x][y] instanceof Creature)
                     {
-                        ((Creature)grid[x][y]).move(grid,x,y);
+                        moveList.put((Creature)grid[x][y],((Creature)grid[x][y]).getMove(grid,x,y)  );
                     }
                 }
-
             }
+        }
+
+        //should do a sorting algorithm for speed.... TO DO...!!!!
+
+
+    }
+
+    public void doMoves(){
+        for (HashMap.Entry<Creature, Point> entry : moveList.entrySet())
+        {
+            entry.getKey().doMove(map.getGrid(),entry.getValue());
         }
     }
 

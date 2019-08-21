@@ -10,6 +10,8 @@ public class Creature implements IGameEntity {
 
     int energy;
     int vision; //vision is its range of sight, ie 5 would be 5 grid blocks in every direction
+    int cx;
+    int cy;
     GridSpaceType visionArray[][];
 
 
@@ -23,8 +25,8 @@ public class Creature implements IGameEntity {
         visionArray = new GridSpaceType[vision*2+1][vision*2+1];
     }
 
+    //draws a Blue circle as creature with a Cyan outline
     public void draw(Graphics g,int x , int y, int size){
-
         if(Settings.drawVisionOn)
         {
             drawVision(g,x,y);
@@ -34,10 +36,9 @@ public class Creature implements IGameEntity {
         g.drawOval(x,y,size,size);
         g.setColor(Color.CYAN);
         g.fillOval(x,y,size,size);
-
-
     }
 
+    //optional mostly used for debugging
     public void drawVision(Graphics g, int x, int y){
         g.setColor(new Color(10,0,0,54));
         for(int i=0; i<visionArray.length;i++)
@@ -52,53 +53,89 @@ public class Creature implements IGameEntity {
         }
     }
 
-    public void move(IGameEntity[][] grid, int cx, int cy){  //cx and cy are current position in grid
-        visionScan(grid,cx,cy);
+    //FIND A GET AN ACTUAL GOOD MOVEMENT --------------------
+    public Point getMove(IGameEntity[][] grid, int cx, int cy){  //cx and cy are current position in grid
+        this.cx = cx;
+        this.cy = cy;
+        visionScan(grid);
+        return getMovement(grid);
     }
 
     //updates vision
-    private void visionScan(IGameEntity[][] grid, int cx, int cy){
-
+    private void visionScan(IGameEntity[][] grid){
         //visionArray
         for(int x=-vision; x<=vision; x++)
         {
             for(int y=-vision; y<=vision; y++)
             {
-                //its a valid grid space
+                //its on the map (not out of bounds check)
                 if((cx+x) >=0 && (cx+x) < Settings.gridSize && (cy+y)>=0 && (cy+y) < Settings.gridSize){
                     if(grid[cx+x][cy+y] instanceof Creature){
-                        visionArray[x+vision][y+vision] = GridSpaceType.C;
+                        visionArray[x+vision][y+vision] = GridSpaceType.C; //creature
                     }else if(grid[cx+x][cy+y] instanceof Food){
-                        visionArray[x+vision][y+vision] = GridSpaceType.F;
+                        visionArray[x+vision][y+vision] = GridSpaceType.F; //food
                     }else{
-                        visionArray[x+vision][y+vision] = GridSpaceType.W;
+                        visionArray[x+vision][y+vision] = GridSpaceType.W; //walkable space
                     }
                 }
                 else{ //off the map
-                    visionArray[x+vision][y+vision] = GridSpaceType.N;
+                    visionArray[x+vision][y+vision] = GridSpaceType.N; //NOT walkable out of bounds ignore!
                 }
-                //grid[cx+x][cy+y]
-
             }
         }
         visionArray[vision][vision] = GridSpaceType.S; //self is in middle of grid always
+    }
+
+    private Point getMovement(IGameEntity[][] grid){
+        Point p = findNearestDesiredGridSpace(GridSpaceType.F);
+        Point next = getNextPosition(new Point(cx,cy),p);
+        System.out.println("Bnext = "+next);
+        System.out.println("Adest = "+p);
         System.out.println();
 
+        return next;
+    }
 
-        //debug print
-        for(int i=0; i<visionArray.length;i++){
-            for(int j=0; j<visionArray.length;j++){
-                //System.out.print(visionArray[i][j]+" ");
+    //if goal is to find food... put food as desired which is (GridSpaceType.F)
+    private Point findNearestDesiredGridSpace(GridSpaceType desired){
+        int x=0;
+        int y=0;
+
+        double dist = 0; //0 means you, if this is final result, then no desired item/food wtv has been found
+        double temp;
+
+        //your pos is in middle of vision array
+        for(int i=0; i<visionArray.length; i++)
+        {
+            for(int j=0; j<visionArray.length; j++)
+            {
+                if(visionArray[i][j] == desired){
+                    temp = Math.sqrt( Math.pow(Math.abs(vision-i),2) +  Math.pow(Math.abs(vision-j),2));
+                    if(dist == 0){
+                        dist = temp;
+                        x=i;
+                        y=j;
+                    }else if(temp <dist){
+                        dist = temp;
+                        x=i;
+                        y=j;
+                    }
+                }
             }
-            //System.out.println();
         }
 
-        //if priority is food, find nearest food
-        //if smarter, it can determine if someone else will get to that food first
-        //if aggressive it'll target someone and fight them, set them as location etc...
-        //find closest food
-        //if nothing found wander
+        if(dist == 0){ //no point was found
+            return new Point(cx,cy); //should wander towards center? TO DO!!!!!!!
+        }
 
+        return convertVisionPointToBigGridPoint(new Point(x,y));
+    }
+
+    //converts small vision coordinates to bigger grid coordinates
+    private Point convertVisionPointToBigGridPoint(Point a){
+        int x = a.x -vision + cx  ;
+        int y= a.y -vision + cy;
+        return new Point(x,y);
     }
 
     private Point getNextPosition(Point s, Point d){
@@ -108,19 +145,52 @@ public class Creature implements IGameEntity {
 
         if(d.x > s.x ){
             x++;
-        }else if(d.x > s.y){
+        }else if(d.x < s.x){
             x--;
         }
 
         if(d.y > s.y ){
             y++;
-        }else if(d.y > s.y){
+        }else if(d.y < s.y){
             y--;
         }
 
         return new Point(x,y);
     }
+    //--------------------
 
+
+
+    //ACTUAL MOVEMENT --------------------
+    public void doMove(IGameEntity[][] grid, Point move){
+        if(move == new Point(cx,cy)){
+            //do nothing!
+        }
+        else if(checkCollisionTrue(move,grid)){
+            confrontCollision(move,grid);
+        }else{
+            grid[move.x][move.y] = this;
+            grid[cx][cy] = null;
+        }
+    }
+
+    private boolean checkCollisionTrue(Point next, IGameEntity[][] grid){
+        if(grid[next.x][next.y] != null){
+            return true;
+        }
+        else
+            return false;
+    }
+
+    private void confrontCollision(Point next, IGameEntity[][] grid){
+        if(grid[next.x][next.y] instanceof Food){
+            //absorb its energy, remove food
+            grid[next.x][next.y] = null;
+            grid[next.x][next.y] = this;
+            grid[cx][cy] = null;
+        }
+    }
+    //---------------------------------
 
 
 }

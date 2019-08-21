@@ -26,11 +26,19 @@ public class Map { //square map
 
         //place creatures at edge of map randomly
         for(int i=0; i<creatureAmount; i++){
-            spawnRandomCoordAtEdgeOfMap();
+            //spawnRandomCoordAtEdgeOfMap();
         }
 
         //place food
-        spawnRandomFood();
+        //spawnRandomFood();
+
+        grid[0][0] = new Creature();
+        grid[1][2] = new Food();
+        grid[1][5] = new Food();
+        grid[3][2] = new Food();
+        grid[3][7] = new Food();
+        grid[5][9] = new Food();
+        grid[4][10] = new Food();
     }
 
     private void spawnRandomCoordAtEdgeOfMap(){

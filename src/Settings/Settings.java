@@ -12,4 +12,7 @@ public class Settings {
 
     public static int InitialCreatureAmount = 100;
     public static int InitialFoodAmount = 1000;
+
+
+    public static int GameLoopSleepTimer = 2000; //1000 = 1second
 }

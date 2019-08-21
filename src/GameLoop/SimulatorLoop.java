@@ -1,6 +1,7 @@
 package GameLoop;
 
 import Controllers.Controller;
+import Settings.Settings;
 import View.SimulationDrawingPane;
 
 public class SimulatorLoop implements Runnable {
@@ -18,7 +19,14 @@ public class SimulatorLoop implements Runnable {
 
         while(true){
             drawingPane.repaint();
-            simulationController.move();
+            simulationController.getMoves();
+            simulationController.doMoves();
+
+            try {
+                Thread.sleep(Settings.GameLoopSleepTimer);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
     }
