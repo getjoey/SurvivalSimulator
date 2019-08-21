@@ -1,6 +1,10 @@
+package Entity;
+
+import Entity.IGameEntity;
+
 import java.awt.*;
 
-public class Food implements IGameEntity{
+public class Food implements IGameEntity {
 
     int energyGiven;
 

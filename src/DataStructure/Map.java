@@ -1,5 +1,10 @@
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+package DataStructure;
+
+import Entity.Creature;
+import Entity.Food;
+import Entity.IGameEntity;
+import Settings.*;
+
 import java.util.Random;
 
 public class Map { //square map

@@ -1,3 +1,8 @@
+package GameLoop;
+
+import Controllers.Controller;
+import View.SimulationDrawingPane;
+
 public class SimulatorLoop implements Runnable {
 
     Controller simulationController;

@@ -1,3 +1,5 @@
+package Entity;
+
 import java.awt.*;
 
 public interface IGameEntity {

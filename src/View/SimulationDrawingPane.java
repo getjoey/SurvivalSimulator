@@ -1,6 +1,11 @@
+package View;
+
+import Controllers.Controller;
+import Entity.IGameEntity;
+import Settings.*;
+
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 public class SimulationDrawingPane extends JPanel {
 
@@ -39,27 +44,11 @@ public class SimulationDrawingPane extends JPanel {
             }
         }
     }
-        /*
-        int x=0;
-        int y=0;
-        for(ArrayList<IGameEntity> col : simulationController.getMap().getGrid())
-        {
-            for(IGameEntity ge : col)
-            {
-                if(ge != null)
-                {
-                    ge.draw(g,x*Settings.squareSize,y*Settings.squareSize,Settings.squareSize);
-                }
-                y++;
-            }
-            y=0;
-            x++;
-        }
-    }
-    */
-        public void drawGrid (Graphics g)
-        {
-            //draw grid
+
+    //draw grid (optional) //can be removed in settings
+    public void drawGrid (Graphics g)
+    {
+        if(Settings.gridDisplayOn){
             for (int i = 0; i <= Settings.gridSize; i++)
             {
                 g.setColor(Color.GRAY);
@@ -73,6 +62,7 @@ public class SimulationDrawingPane extends JPanel {
                         (i * Settings.squareSize));
             }
         }
+    }
 
 
 }

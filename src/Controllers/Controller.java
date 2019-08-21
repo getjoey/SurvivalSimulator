@@ -1,4 +1,9 @@
-import java.util.ArrayList;
+package Controllers;
+
+import DataStructure.Map;
+import Entity.Creature;
+import Entity.IGameEntity;
+import Settings.Settings;
 
 public class Controller {
 
@@ -21,43 +26,26 @@ public class Controller {
     }
 
 
-
     //each frame this is called
-    public void move(){
+    public void move()
+    {
         IGameEntity[][] grid = map.getGrid();
 
-        for (int x = 0; x < Settings.gridSize; x++) {
+        for (int x = 0; x < Settings.gridSize; x++)
+        {
             for (int y = 0; y < Settings.gridSize; y++) {
-                if(grid[x][y] != null){
-                    if(grid[x][y] instanceof Creature){
+
+                if(grid[x][y] != null)
+                {
+                    if(grid[x][y] instanceof Creature)
+                    {
                         ((Creature)grid[x][y]).move(grid,x,y);
                     }
                 }
 
             }
         }
-        /*
-        int x=0;
-        int y=0;
-        for(ArrayList<IGameEntity> col : map.getGrid())
-        {
-            for(IGameEntity ge: col)
-            {
-                if(ge instanceof Creature)
-                {
-                    System.out.println("x"+x+","+y);
-                    ((Creature) ge).move(map.getGrid(),x,y);
-                    System.out.println();
-                }
-                x++;
-            }
-            x=0;
-            y++;
-        }
-        */
     }
-
-
 
 
     public Map getMap() {
