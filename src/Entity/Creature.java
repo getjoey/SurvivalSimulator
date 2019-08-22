@@ -1,46 +1,52 @@
 package Entity;
 
-import Settings.Settings;
+import Settings.MapSettings;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.Random;
-import java.util.Set;
 
 public class Creature implements IGameEntity {
 
-    private int energy;
+    private int initialEnergy;
+    private int energy; //current life energy, when <0 creature dies
     private int vision; //vision is its range of sight, ie 5 would be 5 grid blocks in every direction
-    private int cx;
-    private int cy;
-    private float speed;
-    private int energyTurnCost;
-    private GridSpaceType visionArray[][];
-
+    private int cx; //current x pos on grid
+    private int cy; //current y pos on grid
+    private float baseSpeed; //determines turn order
+    private int energyTurnCost; //cost of energy each turn (tick of gameloop)
+    private float reproductionChance; //chance to reproduce
+    private Color color;
+    private GridSpaceType visionArray[][]; //what they can see on grid
+    private Random ran;
 
     public Creature(){
-        initializeCreature();
+
     }
 
-    private void initializeCreature(){
-        energy = 100;
-        vision = 7;
-        energyTurnCost = 2;
+    public void initializeCreature(int e, int v, int etc, float rc, float bs, Color c){
+        ran = new Random();
+
+        initialEnergy = e;
+        energy = e;
+        vision = v;
+        energyTurnCost = etc;
+        reproductionChance = rc; //0.1 = 10%
         visionArray = new GridSpaceType[vision*2+1][vision*2+1];
-        Random ran = new Random();
-        speed = ran.nextFloat()+0.1f;
+        color = c;
+        baseSpeed = bs + ((float)ran.nextInt(10))/100;
     }
+
 
     //draws a Blue circle as creature with a Cyan outline
     public void draw(Graphics g,int x , int y, int size){
-        if(Settings.drawVisionOn)
+        if(MapSettings.drawVisionOn)
         {
             drawVision(g,x,y);
         }
         //g.fillRect(x,y,size,size);
-        g.setColor(Color.BLUE);
-        g.drawOval(x,y,size,size);
         g.setColor(Color.CYAN);
+        g.drawOval(x,y,size,size);
+        g.setColor(color);
         g.fillOval(x,y,size,size);
     }
 
@@ -51,10 +57,10 @@ public class Creature implements IGameEntity {
         {
             for(int j=0; j<visionArray.length; j++)
             {
-                g.fillRect((x/Settings.squareSize+i-vision)* Settings.squareSize,
-                        (y/Settings.squareSize+j-vision)* Settings.squareSize,
-                        Settings.squareSize,
-                        Settings.squareSize);
+                g.fillRect((x/ MapSettings.squareSize+i-vision)* MapSettings.squareSize,
+                        (y/ MapSettings.squareSize+j-vision)* MapSettings.squareSize,
+                        MapSettings.squareSize,
+                        MapSettings.squareSize);
             }
         }
     }
@@ -75,7 +81,7 @@ public class Creature implements IGameEntity {
             for(int y=-vision; y<=vision; y++)
             {
                 //its on the map (not out of bounds check)
-                if((cx+x) >=0 && (cx+x) < Settings.gridSize && (cy+y)>=0 && (cy+y) < Settings.gridSize){
+                if((cx+x) >=0 && (cx+x) < MapSettings.gridSize && (cy+y)>=0 && (cy+y) < MapSettings.gridSize){
                     if(grid[cx+x][cy+y] instanceof Creature){
                         visionArray[x+vision][y+vision] = GridSpaceType.C; //creature
                     }else if(grid[cx+x][cy+y] instanceof Food){
@@ -130,7 +136,7 @@ public class Creature implements IGameEntity {
         }
 
         if(dist == 0){ //no point was found
-            return new Point(Settings.gridSize/2,Settings.gridSize/2);
+            return new Point(MapSettings.gridSize/2, MapSettings.gridSize/2);
             //return new Point(cx,cy); //should wander towards center? TO DO!!!!!!!
         }
 
@@ -204,11 +210,11 @@ public class Creature implements IGameEntity {
 
 
     public float getSpeed() {
-        return speed;
+        return baseSpeed;
     }
 
 
-    public void reduceEnergy(IGameEntity[][] grid){
+    public void reduceEnergyDieReproduce(IGameEntity[][] grid){
         //reduce energy each turn
         energy -= energyTurnCost;
 
@@ -217,5 +223,30 @@ public class Creature implements IGameEntity {
             System.out.println("dead");
             grid[cx][cy] = null;
         }
+        if(ran.nextFloat() <= reproductionChance){
+            //System.out.println("baby");
+            reproduce(grid);
+        }
+
     }
+
+    public void reproduce(IGameEntity[][] grid){
+        //copy the genes
+        //place new creature//next to parent.
+        Creature baby = new Creature();
+        baby.initializeCreature(initialEnergy,vision,energyTurnCost,reproductionChance,baseSpeed,color);
+
+        if(grid[this.cx-1][this.cy-1] == null){
+            grid[this.cx-1][this.cy-1] = baby;
+        }
+        else if (grid[this.cx-1][this.cy] == null){
+            grid[this.cx-1][this.cy] = baby;
+        }
+        else if (grid[this.cx+1][this.cy] == null) {
+            grid[this.cx+1][this.cy] = baby;
+        }
+
+
+    }
+
 }

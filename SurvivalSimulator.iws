@@ -2,10 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="462ef731-7d37-401e-ae1a-11265523a7d5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Entity/CreatureFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Settings/CreatureASettings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Settings/CreatureBSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SurvivalSimulator.iws" beforeDir="false" afterPath="$PROJECT_DIR$/SurvivalSimulator.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SurvivalSimulator/Controllers/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SurvivalSimulator/Controllers/Controller$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SurvivalSimulator/Controllers/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SurvivalSimulator/Controllers/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SurvivalSimulator/DataStructure/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SurvivalSimulator/DataStructure/Map.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SurvivalSimulator/Entity/Creature.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SurvivalSimulator/Entity/Creature.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SurvivalSimulator/GameLoop/SimulatorLoop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SurvivalSimulator/GameLoop/SimulatorLoop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SurvivalSimulator/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SurvivalSimulator/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SurvivalSimulator/Settings/Settings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SurvivalSimulator/View/SimulationDrawingPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SurvivalSimulator/View/SimulationDrawingPane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SurvivalSimulator/View/SimulationMainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SurvivalSimulator/View/SimulationMainFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DataStructure/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataStructure/Map.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Creature.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameLoop/SimulatorLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameLoop/SimulatorLoop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Settings/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Settings/MapSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/SimulationDrawingPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/SimulationDrawingPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/SimulationMainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/SimulationMainFrame.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,13 +36,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="34">
+              <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameLoop/SimulatorLoop.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
@@ -40,8 +60,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="653">
-              <caret line="84" column="31" selection-start-line="84" selection-start-column="16" selection-end-line="84" selection-end-column="31" />
+            <state relative-caret-position="347">
+              <caret line="75" column="59" selection-start-line="75" selection-start-column="59" selection-end-line="75" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2212#2213#0" expanded="true" />
@@ -54,8 +74,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DataStructure/Map.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
+            <state relative-caret-position="262">
+              <caret line="35" column="45" lean-forward="true" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -63,11 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Entity/Creature.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3458">
-              <caret line="218" column="9" lean-forward="true" selection-start-line="218" selection-start-column="9" selection-end-line="218" selection-end-column="9" />
+            <state relative-caret-position="500">
+              <caret line="247" column="8" lean-forward="true" selection-start-line="247" selection-start-column="8" selection-end-line="247" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#6178#6179#0" expanded="true" />
@@ -77,13 +97,52 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/CreatureFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="26" column="48" lean-forward="true" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Settings/MapSettings.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="68" selection-start-line="16" selection-start-column="68" selection-end-line="16" selection-end-column="68" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Settings/CreatureASettings.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="47" lean-forward="true" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Settings/CreatureBSettings.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -100,15 +159,19 @@
       <list>
         <option value="$PROJECT_DIR$/src/Controller.java" />
         <option value="$PROJECT_DIR$/src/Entity/GridSpaceType.java" />
-        <option value="$PROJECT_DIR$/src/Settings/Settings.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Entity/Food.java" />
         <option value="$PROJECT_DIR$/src/View/SimulationMainFrame.java" />
         <option value="$PROJECT_DIR$/src/View/SimulationDrawingPane.java" />
-        <option value="$PROJECT_DIR$/src/Entity/Creature.java" />
-        <option value="$PROJECT_DIR$/src/DataStructure/Map.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/Controller.java" />
         <option value="$PROJECT_DIR$/src/GameLoop/SimulatorLoop.java" />
+        <option value="$PROJECT_DIR$/src/Settings/Settings.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/Controller.java" />
+        <option value="$PROJECT_DIR$/src/Settings/MapSettings.java" />
+        <option value="$PROJECT_DIR$/src/Settings/CreatureASettings.java" />
+        <option value="$PROJECT_DIR$/src/DataStructure/Map.java" />
+        <option value="$PROJECT_DIR$/src/Entity/CreatureFactory.java" />
+        <option value="$PROJECT_DIR$/src/Settings/CreatureBSettings.java" />
+        <option value="$PROJECT_DIR$/src/Entity/Creature.java" />
       </list>
     </option>
   </component>
@@ -159,6 +222,12 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="GameLoop" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="SurvivalSimulator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SurvivalSimulator" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Settings" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -170,11 +239,14 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566500874649" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566503580739" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Settings" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Genesis\Documents\GitHub\SurvivalSimulator\src" />
     </key>
@@ -222,13 +294,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15572000" />
+    <option name="totallyTimeSpent" value="18172000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="75" y="23" width="1729" height="1026" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25584182" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25584182" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -237,7 +309,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32922733" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32922733" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32922733" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -296,13 +368,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Settings/Settings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="68" selection-start-line="19" selection-start-column="68" selection-end-line="19" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Food.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -316,29 +381,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Creature.java">
+    <entry file="file://$PROJECT_DIR$/src/GameLoop/SimulatorLoop.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3458">
-          <caret line="218" column="9" lean-forward="true" selection-start-line="218" selection-start-column="9" selection-end-line="218" selection-end-column="9" />
+        <state relative-caret-position="272">
+          <caret line="39" column="53" selection-start-line="39" selection-start-column="53" selection-end-line="39" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6178#6179#0" expanded="true" />
-            <element signature="e#6206#6207#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataStructure/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
+        <state relative-caret-position="34">
+          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -347,8 +403,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="653">
-          <caret line="84" column="31" selection-start-line="84" selection-start-column="16" selection-end-line="84" selection-end-column="31" />
+        <state relative-caret-position="347">
+          <caret line="75" column="59" selection-start-line="75" selection-start-column="59" selection-end-line="75" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2212#2213#0" expanded="true" />
@@ -357,12 +413,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameLoop/SimulatorLoop.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/awt/Color.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="39" column="53" selection-start-line="39" selection-start-column="53" selection-end-line="39" selection-end-column="53" />
+        <state relative-caret-position="191">
+          <caret line="309" selection-start-line="309" selection-end-line="309" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataStructure/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="35" column="45" lean-forward="true" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Settings/CreatureBSettings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Settings/CreatureASettings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="47" lean-forward="true" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Settings/MapSettings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="68" selection-start-line="16" selection-start-column="68" selection-end-line="16" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/CreatureFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="26" column="48" lean-forward="true" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Creature.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="247" column="8" lean-forward="true" selection-start-line="247" selection-start-column="8" selection-end-line="247" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6178#6179#0" expanded="true" />
+            <element signature="e#6206#6207#0" expanded="true" />
           </folding>
         </state>
       </provider>

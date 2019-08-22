@@ -3,16 +3,13 @@ package Controllers;
 import DataStructure.Map;
 import Entity.Creature;
 import Entity.IGameEntity;
-import Settings.Settings;
+import Settings.MapSettings;
 import javafx.util.Pair;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Controller {
 
@@ -40,9 +37,9 @@ public class Controller {
     {
         moveList.clear();
         IGameEntity[][] grid = map.getGrid();
-        for (int x = 0; x < Settings.gridSize; x++)
+        for (int x = 0; x < MapSettings.gridSize; x++)
         {
-            for (int y = 0; y < Settings.gridSize; y++) {
+            for (int y = 0; y < MapSettings.gridSize; y++) {
 
                 if(grid[x][y] != null)
                 {
@@ -76,9 +73,10 @@ public class Controller {
 
     //execution
     public void doMoves(){
+        System.out.println("Creatures = "+moveList.size());
         for(Pair<Creature, Point> p : moveList){
             p.getKey().doMove(map.getGrid(), p.getValue());
-            p.getKey().reduceEnergy(map.getGrid());
+            p.getKey().reduceEnergyDieReproduce(map.getGrid());
         }
     }
 

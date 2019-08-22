@@ -1,6 +1,7 @@
 package DataStructure;
 
 import Entity.Creature;
+import Entity.CreatureFactory;
 import Entity.Food;
 import Entity.IGameEntity;
 import Settings.*;
@@ -11,12 +12,12 @@ public class Map { //square map
 
     private Random ran;
     private IGameEntity[][] grid;
-    private int creatureAmount = Settings.InitialCreatureAmount;
-    private int initialFoodAmount = Settings.InitialFoodAmount;
+    private CreatureFactory creatureFactory;
 
     public Map(){
-        grid = new IGameEntity[Settings.gridSize][Settings.gridSize];
+        grid = new IGameEntity[MapSettings.gridSize][MapSettings.gridSize];
         ran = new Random();
+        creatureFactory = new CreatureFactory();
 
         initMap();
     }
@@ -25,26 +26,22 @@ public class Map { //square map
     private void initMap(){
 
         //place creatures at edge of map randomly
-        for(int i=0; i<creatureAmount; i++){
-            spawnRandomCoordAtEdgeOfMap();
+        //Creature type A
+        for(int i=0; i<CreatureASettings.initialAmount; i++){
+            spawnRandomCoordAtEdgeOfMap("A");
+        }
+
+        //Creature Type B
+        for(int i=0; i<CreatureBSettings.initialAmount; i++){
+            spawnRandomCoordAtEdgeOfMap("B");
         }
 
         //place food
-        spawnRandomFood(initialFoodAmount);
+        spawnRandomFood(MapSettings.InitialFoodAmount);
 
-        /*
-        grid[0][0] = new Creature();
-        grid[1][0] = new Creature();
-        grid[1][2] = new Food();
-        grid[1][5] = new Food();
-        grid[3][2] = new Food();
-        grid[3][7] = new Food();
-        grid[5][9] = new Food();
-        grid[4][10] = new Food();
-        */
     }
 
-    private void spawnRandomCoordAtEdgeOfMap(){
+    private void spawnRandomCoordAtEdgeOfMap(String type){
         int x =0;
         int y =0;
         int xyAxis = ran.nextInt(2); //0 is fixed x axis, 1 is fixed yaxis
@@ -56,17 +53,17 @@ public class Map { //square map
             if(xyAxis == 0)//xaxis is fixed
             {
                 x = ran.nextInt(2); //0 is left side, 1 is right side of grid
-                y = ran.nextInt(Settings.gridSize);
+                y = ran.nextInt(MapSettings.gridSize);
                 if(x !=0){ //set proper x
-                    x = Settings.gridSize-1;
+                    x = MapSettings.gridSize-1;
                 }
             }
             else //yaxis is fixed
             {
-                x = ran.nextInt(Settings.gridSize);
+                x = ran.nextInt(MapSettings.gridSize);
                 y = ran.nextInt(2); //0 is top, 1 is bottom of grid
                 if(y !=0){ //set proper y
-                    y = Settings.gridSize-1;
+                    y = MapSettings.gridSize-1;
                 }
             }
 
@@ -75,7 +72,7 @@ public class Map { //square map
                 notFoundSpot = false;
             }
         }
-        grid[x][y] = new Creature();
+        grid[x][y] = creatureFactory.makeCreature(type);
 
     }
 
@@ -86,8 +83,8 @@ public class Map { //square map
             int x=0;
             int y=0;
 
-            x= ran.nextInt(Settings.gridSize-2) + 1; //places food anywhere not on edge of map x-axis
-            y= ran.nextInt(Settings.gridSize-2) + 1; //places food anywhere not on edge of map y-axis
+            x= ran.nextInt(MapSettings.gridSize-2) + 1; //places food anywhere not on edge of map x-axis
+            y= ran.nextInt(MapSettings.gridSize-2) + 1; //places food anywhere not on edge of map y-axis
 
             if(grid[x][y] == null){
                 grid[x][y] = new Food();

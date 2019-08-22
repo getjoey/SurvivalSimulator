@@ -36,10 +36,10 @@ public class SimulationDrawingPane extends JPanel implements Runnable{
         //drawing top to bottom. towards right
 
         IGameEntity[][] grid = simulationController.getMap().getGrid();
-        for (int x = 0; x < Settings.gridSize; x++) {
-            for (int y = 0; y < Settings.gridSize; y++) {
+        for (int x = 0; x < MapSettings.gridSize; x++) {
+            for (int y = 0; y < MapSettings.gridSize; y++) {
                 if(grid[x][y] != null){
-                    grid[x][y].draw(g, x * Settings.squareSize, y * Settings.squareSize, Settings.squareSize);
+                    grid[x][y].draw(g, x * MapSettings.squareSize, y * MapSettings.squareSize, MapSettings.squareSize);
                 }
 
             }
@@ -49,18 +49,18 @@ public class SimulationDrawingPane extends JPanel implements Runnable{
     //draw grid (optional) //can be removed in settings
     public void drawGrid (Graphics g)
     {
-        if(Settings.gridDisplayOn){
-            for (int i = 0; i <= Settings.gridSize; i++)
+        if(MapSettings.gridDisplayOn){
+            for (int i = 0; i <= MapSettings.gridSize; i++)
             {
                 g.setColor(Color.GRAY);
-                g.drawLine((i * Settings.squareSize),
+                g.drawLine((i * MapSettings.squareSize),
                         0,
-                        (i * Settings.squareSize),
-                        (Settings.gridSize * Settings.squareSize));
+                        (i * MapSettings.squareSize),
+                        (MapSettings.gridSize * MapSettings.squareSize));
                 g.drawLine(0,
-                        (i * Settings.squareSize),
-                        (Settings.gridSize * Settings.squareSize),
-                        (i * Settings.squareSize));
+                        (i * MapSettings.squareSize),
+                        (MapSettings.gridSize * MapSettings.squareSize),
+                        (i * MapSettings.squareSize));
             }
         }
     }

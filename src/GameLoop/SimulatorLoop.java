@@ -1,7 +1,7 @@
 package GameLoop;
 
 import Controllers.Controller;
-import Settings.Settings;
+import Settings.MapSettings;
 import View.SimulationDrawingPane;
 
 
@@ -41,7 +41,7 @@ public class SimulatorLoop implements Runnable {
             }
 
             try {
-                Thread.sleep(Settings.GameLoopSleepTimer);
+                Thread.sleep(MapSettings.GameLoopSleepTimer);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

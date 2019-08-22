@@ -1,10 +1,6 @@
 import GameLoop.SimulatorLoop;
-import Settings.Settings;
 import View.SimulationDrawingPane;
 import View.SimulationMainFrame;
-
-import javax.swing.*;
-import java.awt.*;
 
 public class Main {
 
