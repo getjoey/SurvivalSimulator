@@ -9,6 +9,7 @@ import java.awt.*;
 public class Main {
 
     public static void main(String[] args) {
+
         //Gui
         SimulationMainFrame View = new SimulationMainFrame();
 
@@ -17,7 +18,9 @@ public class Main {
         threadD.start();
 
         //thread -Gameloop
-        Thread threadGL = new Thread (new SimulatorLoop());
+        Thread threadGL = new Thread (SimulatorLoop.getInstance());
         threadGL.start();
+
+
     }
 }

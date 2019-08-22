@@ -8,11 +8,14 @@ public class Settings {
     public static final int paneOffsetY = 20; //20
 
     public static boolean gridDisplayOn = true;
-    public static boolean drawVisionOn = true;
+    public static boolean drawVisionOn = false;
 
     public static int InitialCreatureAmount = 100;
     public static int InitialFoodAmount = 1000;
 
 
-    public static int GameLoopSleepTimer = 2000; //1000 = 1second
+    public static int GameLoopSleepTimer = 500; //1000 = 1second
+
+
+    public static boolean debugOn = false; //prints some useful info
 }

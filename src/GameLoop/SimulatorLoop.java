@@ -4,23 +4,40 @@ import Controllers.Controller;
 import Settings.Settings;
 import View.SimulationDrawingPane;
 
+
 public class SimulatorLoop implements Runnable {
 
-    Controller simulationController;
-    SimulationDrawingPane drawingPane;
+    private static SimulatorLoop instance = null;
+    private Controller simulationController;
+    private SimulationDrawingPane drawingPane;
+    private int keyPressed = 0;
 
-    public SimulatorLoop(){
+    private SimulatorLoop(){
         simulationController = Controller.getInstance();
         //drawingPane = SimulationDrawingPane.getInstance();
+    }
+
+    public static synchronized SimulatorLoop getInstance(){
+        if(instance == null){
+            instance = new SimulatorLoop();
+        }
+        return instance;
     }
 
     @Override
     public void run() {
 
         while(true){
-            //drawingPane.repaint();
-            simulationController.getMoves();
-            simulationController.doMoves();
+
+
+            if(keyPressed == 32){
+                keyPressed = 0;
+                simulationController.resetGame();
+            }
+            else{
+                simulationController.getMoves();
+                simulationController.doMoves();
+            }
 
             try {
                 Thread.sleep(Settings.GameLoopSleepTimer);
@@ -31,4 +48,7 @@ public class SimulatorLoop implements Runnable {
 
     }
 
+    public void setKeyPressed(int keyPressed) {
+        this.keyPressed = keyPressed;
+    }
 }

@@ -4,15 +4,17 @@ import Settings.Settings;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Set;
 
 public class Creature implements IGameEntity {
 
-    int energy;
-    int vision; //vision is its range of sight, ie 5 would be 5 grid blocks in every direction
-    int cx;
-    int cy;
-    GridSpaceType visionArray[][];
+    private int energy;
+    private int vision; //vision is its range of sight, ie 5 would be 5 grid blocks in every direction
+    private int cx;
+    private int cy;
+    private float speed;
+    private GridSpaceType visionArray[][];
 
 
     public Creature(){
@@ -23,6 +25,8 @@ public class Creature implements IGameEntity {
         energy = 100;
         vision = 3;
         visionArray = new GridSpaceType[vision*2+1][vision*2+1];
+        Random ran = new Random();
+        speed = ran.nextFloat()+0.1f;
     }
 
     //draws a Blue circle as creature with a Cyan outline
@@ -88,12 +92,11 @@ public class Creature implements IGameEntity {
 
     private Point getMovement(IGameEntity[][] grid){
         Point p = findNearestDesiredGridSpace(GridSpaceType.F);
-        Point next = getNextPosition(new Point(cx,cy),p);
-        System.out.println("Bnext = "+next);
-        System.out.println("Adest = "+p);
-        System.out.println();
+        //System.out.println("Bnext = "+next);
+        //System.out.println("Adest = "+p);
+        //System.out.println();
 
-        return next;
+        return getNextPosition(new Point(cx,cy),p);
     }
 
     //if goal is to find food... put food as desired which is (GridSpaceType.F)
@@ -125,7 +128,8 @@ public class Creature implements IGameEntity {
         }
 
         if(dist == 0){ //no point was found
-            return new Point(cx,cy); //should wander towards center? TO DO!!!!!!!
+            return new Point(Settings.gridSize/2,Settings.gridSize/2);
+            //return new Point(cx,cy); //should wander towards center? TO DO!!!!!!!
         }
 
         return convertVisionPointToBigGridPoint(new Point(x,y));
@@ -139,10 +143,8 @@ public class Creature implements IGameEntity {
     }
 
     private Point getNextPosition(Point s, Point d){
-
         int x= s.x;
         int y= s.y;
-
         if(d.x > s.x ){
             x++;
         }else if(d.x < s.x){
@@ -154,10 +156,12 @@ public class Creature implements IGameEntity {
         }else if(d.y < s.y){
             y--;
         }
-
         return new Point(x,y);
+
+
     }
     //--------------------
+
 
 
 
@@ -185,6 +189,7 @@ public class Creature implements IGameEntity {
     private void confrontCollision(Point next, IGameEntity[][] grid){
         if(grid[next.x][next.y] instanceof Food){
             //absorb its energy, remove food
+            this.energy += ((Food)grid[next.x][next.y]).getEnergyGiven();
             grid[next.x][next.y] = null;
             grid[next.x][next.y] = this;
             grid[cx][cy] = null;
@@ -193,4 +198,7 @@ public class Creature implements IGameEntity {
     //---------------------------------
 
 
+    public float getSpeed() {
+        return speed;
+    }
 }

@@ -9,8 +9,8 @@ import java.awt.*;
 
 public class SimulationDrawingPane extends JPanel implements Runnable{
 
-    static SimulationDrawingPane instance = null;
-    Controller simulationController;
+    private static SimulationDrawingPane instance = null;
+    private Controller simulationController;
 
     private SimulationDrawingPane() {
         simulationController = Controller.getInstance();

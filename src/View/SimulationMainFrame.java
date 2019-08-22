@@ -1,16 +1,23 @@
 package View;
 
+import GameLoop.SimulatorLoop;
 import Settings.Settings;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.security.Key;
 
-public class SimulationMainFrame extends JFrame {
+public class SimulationMainFrame extends JFrame implements KeyListener {
 
-    SimulationDrawingPane simulationDrawingPane;
+    private SimulationDrawingPane simulationDrawingPane;
+    private SimulatorLoop gameLoop;
 
     public SimulationMainFrame(){
         initFrame();
+        addKeyListener(this);
+        gameLoop = SimulatorLoop.getInstance();
     }
 
     public void initFrame(){
@@ -22,6 +29,21 @@ public class SimulationMainFrame extends JFrame {
         simulationDrawingPane = SimulationDrawingPane.getInstance();
         this.getContentPane().add(simulationDrawingPane, BorderLayout.CENTER);
         this.setVisible(true);
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        gameLoop.setKeyPressed(e.getKeyCode());
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
     }
 
 }

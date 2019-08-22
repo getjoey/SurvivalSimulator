@@ -6,10 +6,9 @@ import java.awt.*;
 
 public class Food implements IGameEntity {
 
-    int energyGiven;
+    private int energyGiven;
 
     public Food(){
-
         energyGiven = 10;
     }
 
@@ -18,5 +17,9 @@ public class Food implements IGameEntity {
     public void draw(Graphics g,int x , int y, int size) {
         g.setColor(Color.green);
         g.fillRect(x,y,size,size);
+    }
+
+    public int getEnergyGiven() {
+        return energyGiven;
     }
 }
