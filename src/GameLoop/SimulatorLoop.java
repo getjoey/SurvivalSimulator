@@ -29,16 +29,23 @@ public class SimulatorLoop implements Runnable {
 
         while(true){
 
-
-            if(keyPressed == 32){
-                keyPressed = 0;
-                simulationController.resetGame();
+            switch(keyPressed){
+                case 32:{
+                    keyPressed = 0;
+                    simulationController.resetGame();
+                    break;
+                }
+                case 80:{
+                    keyPressed = 0;
+                    simulationController.printStatistics();
+                    break;
+                }
             }
-            else{
-                simulationController.getMoves();
+
+                simulationController.sortCreaturesBySpeed();
                 simulationController.doMoves();
                 simulationController.spawnNewFoods();
-            }
+
 
             try {
                 Thread.sleep(MapSettings.GameLoopSleepTimer);

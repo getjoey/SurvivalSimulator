@@ -17,7 +17,9 @@ public class CreatureFactory {
                     CreatureASettings.energyTurnCost,
                     CreatureASettings.reproductionChance,
                     CreatureASettings.baseSpeed,
-                    CreatureASettings.color);
+                    CreatureASettings.color,
+                    "A");
+
         }
         if(type.equals("B")){
             c.initializeCreature(CreatureBSettings.initialEnergy,
@@ -25,8 +27,10 @@ public class CreatureFactory {
                     CreatureBSettings.energyTurnCost,
                     CreatureBSettings.reproductionChance,
                     CreatureBSettings.baseSpeed,
-                    CreatureBSettings.color);
+                    CreatureBSettings.color,
+                    "B");
         }
+
 
         return c;
     }

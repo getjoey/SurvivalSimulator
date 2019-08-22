@@ -8,13 +8,13 @@ import Settings.*;
 
 import java.util.Random;
 
-public class Map { //square map
+public class GridMap { //square map
 
     private Random ran;
     private IGameEntity[][] grid;
     private CreatureFactory creatureFactory;
 
-    public Map(){
+    public GridMap(){
         grid = new IGameEntity[MapSettings.gridSize][MapSettings.gridSize];
         ran = new Random();
         creatureFactory = new CreatureFactory();
@@ -73,6 +73,8 @@ public class Map { //square map
             }
         }
         grid[x][y] = creatureFactory.makeCreature(type);
+        ((Creature)grid[x][y]).setCy(y);
+        ((Creature)grid[x][y]).setCx(x);
 
     }
 

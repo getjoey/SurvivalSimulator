@@ -7,6 +7,7 @@ import java.util.Random;
 
 public class Creature implements IGameEntity {
 
+    private String type; //this is mainly for debugging and statistics since its not needed otherwise
     private int initialEnergy;
     private int energy; //current life energy, when <0 creature dies
     private int vision; //vision is its range of sight, ie 5 would be 5 grid blocks in every direction
@@ -18,12 +19,17 @@ public class Creature implements IGameEntity {
     private Color color;
     private GridSpaceType visionArray[][]; //what they can see on grid
     private Random ran;
+    private Point nextMove;
 
+    public Creature(int x, int y){
+        this.cx = x;
+        this.cy = y;
+    }
     public Creature(){
 
     }
 
-    public void initializeCreature(int e, int v, int etc, float rc, float bs, Color c){
+    public void initializeCreature(int e, int v, int etc, float rc, float bs, Color c, String t){
         ran = new Random();
 
         initialEnergy = e;
@@ -33,6 +39,7 @@ public class Creature implements IGameEntity {
         reproductionChance = rc; //0.1 = 10%
         visionArray = new GridSpaceType[vision*2+1][vision*2+1];
         color = c;
+        type = t;
         baseSpeed = bs + ((float)ran.nextInt(10))/100;
     }
 
@@ -66,12 +73,11 @@ public class Creature implements IGameEntity {
     }
 
     //FIND A GET AN ACTUAL GOOD MOVEMENT --------------------
-    public Point getMove(IGameEntity[][] grid, int cx, int cy){  //cx and cy are current position in grid
-        this.cx = cx;
-        this.cy = cy;
+    public void getMove(IGameEntity[][] grid){  //cx and cy are current position in grid
         visionScan(grid);
-        return getMovement(grid);
+        nextMove = getMovement();
     }
+
 
     //updates vision
     private void visionScan(IGameEntity[][] grid){
@@ -98,12 +104,8 @@ public class Creature implements IGameEntity {
         visionArray[vision][vision] = GridSpaceType.S; //self is in middle of grid always
     }
 
-    private Point getMovement(IGameEntity[][] grid){
-        Point p = findNearestDesiredGridSpace(GridSpaceType.F);
-        //System.out.println("Bnext = "+next);
-        //System.out.println("Adest = "+p);
-        //System.out.println();
-
+    private Point getMovement(){
+        Point p = findNearestDesiredGridSpace(GridSpaceType.F); //find nearest food (omnivore type)
         return getNextPosition(new Point(cx,cy),p);
     }
 
@@ -136,8 +138,9 @@ public class Creature implements IGameEntity {
         }
 
         if(dist == 0){ //no point was found
-            return new Point(MapSettings.gridSize/2, MapSettings.gridSize/2);
-            //return new Point(cx,cy); //should wander towards center? TO DO!!!!!!!
+            return new Point(ran.nextInt(MapSettings.gridSize), ran.nextInt(MapSettings.gridSize)); //wander randomly
+            //return new Point(MapSettings.gridSize/2, MapSettings.gridSize/2); //go to middle
+            //return new Point(cx,cy); //do nothing
         }
 
         return convertVisionPointToBigGridPoint(new Point(x,y));
@@ -153,6 +156,7 @@ public class Creature implements IGameEntity {
     private Point getNextPosition(Point s, Point d){
         int x= s.x;
         int y= s.y;
+
         if(d.x > s.x ){
             x++;
         }else if(d.x < s.x){
@@ -164,6 +168,8 @@ public class Creature implements IGameEntity {
         }else if(d.y < s.y){
             y--;
         }
+        //doesnt work fully, may be a creature there
+
         return new Point(x,y);
 
 
@@ -174,37 +180,33 @@ public class Creature implements IGameEntity {
 
 
     //ACTUAL MOVEMENT --------------------
-    public void doMove(IGameEntity[][] grid, Point move){
-        if(move == new Point(cx,cy)){
-            //do nothing!
-        }
-        else if(checkCollisionTrue(move,grid)){
-            confrontCollision(move,grid);
-        }else{
-            grid[move.x][move.y] = this;
-            grid[cx][cy] = null;
-        }
-        this.cx = move.x;
-        this.cy = move.y;
-
-    }
-
-    private boolean checkCollisionTrue(Point next, IGameEntity[][] grid){
-        if(grid[next.x][next.y] != null){
-            return true;
-        }
-        else
-            return false;
+    public void doMove(IGameEntity[][] grid){
+        confrontCollision(nextMove,grid);
     }
 
     private void confrontCollision(Point next, IGameEntity[][] grid){
+        //eat food
         if(grid[next.x][next.y] instanceof Food){
             //absorb its energy, remove food
             this.energy += ((Food)grid[next.x][next.y]).getEnergyGiven();
-            grid[next.x][next.y] = null;
-            grid[next.x][next.y] = this;
-            grid[cx][cy] = null;
+            changeLocationOnGrid(grid);
+        }else if(grid[next.x][next.y] instanceof Creature){
+            //do nothing for now
+            //System.out.println("problem at "+next.x+","+next.y);
+            //System.out.println("c "+cx+","+cy);
+            //System.out.println();
+            //changeLocationOnGrid(grid);
+        }else {
+            changeLocationOnGrid(grid);
         }
+    }
+
+    private void changeLocationOnGrid(IGameEntity[][] grid){
+        grid[nextMove.x][nextMove.y] = null;
+        grid[nextMove.x][nextMove.y] = this;
+        grid[cx][cy] = null;
+        this.cx = nextMove.x;
+        this.cy = nextMove.y;
     }
     //---------------------------------
 
@@ -215,16 +217,16 @@ public class Creature implements IGameEntity {
 
 
     public void reduceEnergyDieReproduce(IGameEntity[][] grid){
-        //reduce energy each turn
+        //reduce energy
         energy -= energyTurnCost;
 
-        //die
+        //check if dead die
         if(energy <=0){
-            System.out.println("dead");
             grid[cx][cy] = null;
         }
-        if(ran.nextFloat() <= reproductionChance){
-            //System.out.println("baby");
+
+        //chance to reproduce
+        if(ran.nextFloat() <= reproductionChance && energy > 0){
             reproduce(grid);
         }
 
@@ -234,19 +236,70 @@ public class Creature implements IGameEntity {
         //copy the genes
         //place new creature//next to parent.
         Creature baby = new Creature();
-        baby.initializeCreature(initialEnergy,vision,energyTurnCost,reproductionChance,baseSpeed,color);
+        baby.initializeCreature(initialEnergy,vision,energyTurnCost,reproductionChance,baseSpeed,color,type);
 
-        if(grid[this.cx-1][this.cy-1] == null){
-            grid[this.cx-1][this.cy-1] = baby;
-        }
-        else if (grid[this.cx-1][this.cy] == null){
-            grid[this.cx-1][this.cy] = baby;
-        }
-        else if (grid[this.cx+1][this.cy] == null) {
-            grid[this.cx+1][this.cy] = baby;
-        }
+        //find some spot around it thats free
+        Point a = findPointAroundMe(GridSpaceType.F);
 
+        grid[a.x][a.y] = baby;
+        baby.setCx(a.x);
+        baby.setCy(a.y);
 
     }
 
+    private Point findPointAroundMe(GridSpaceType t){
+        int xx = vision;
+        int yy = vision;
+
+        if(visionArray[vision-1][vision] == t){ //left
+                xx = vision-1;
+                yy = vision;
+        }
+        else if (visionArray[vision+1][vision] == t) { //right
+                xx = vision+1;
+                yy = vision;
+        }
+        else if (visionArray[vision-1][vision-1] == t) { //leftdown
+                xx = vision-1;
+                yy = vision-1;
+        }
+        else if (visionArray[vision-1][vision+1] == t) { //leftup
+                xx = vision-1;
+                yy = vision+1;
+        }
+        else if (visionArray[vision][vision+1] == t) { //up
+                xx = vision;
+                yy = vision+1;
+        }
+        else if (visionArray[vision][vision-1] == t) { //down
+                xx = vision;
+                yy = vision-1;
+        }
+        else if (visionArray[vision+1][vision+1] == t) { //rightup
+                xx = vision+1;
+                yy = vision+1;
+        }
+        else if (visionArray[vision+1][vision-1] == t) { //rightdown
+                xx = vision+1;
+                yy = vision-1;
+        }
+
+        return convertVisionPointToBigGridPoint(new Point(xx,yy));
+    }
+
+    public void setCx(int cx) {
+        this.cx = cx;
+    }
+
+    public void setCy(int cy) {
+        this.cy = cy;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getType() {
+        return type;
+    }
 }

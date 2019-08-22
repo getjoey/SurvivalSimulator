@@ -1,27 +1,27 @@
 package Controllers;
 
-import DataStructure.Map;
+import DataStructure.GridMap;
 import Entity.Creature;
 import Entity.IGameEntity;
 import Settings.MapSettings;
-import javafx.util.Pair;
-
-import java.awt.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
 
 public class Controller {
 
     private static Controller instance = null;
-    private Map map;
-    private ArrayList<Pair<Creature,Point>> moveList;
+    private GridMap map;
+    private ArrayList<Creature> creatureList;
 
 
     private Controller( )
     {
-        map = new Map();
-        moveList = new ArrayList<>();
+        map = new GridMap();
+        creatureList = new ArrayList<>();
     }
 
     public static synchronized Controller getInstance(){
@@ -33,9 +33,9 @@ public class Controller {
 
 
     //each frame this is called
-    public void getMoves()
+    public void sortCreaturesBySpeed()
     {
-        moveList.clear();
+        creatureList.clear();
         IGameEntity[][] grid = map.getGrid();
         for (int x = 0; x < MapSettings.gridSize; x++)
         {
@@ -45,55 +45,72 @@ public class Controller {
                 {
                     if(grid[x][y] instanceof Creature)
                     {
-                        moveList.add(new Pair( ((Creature)grid[x][y]),((Creature)grid[x][y]).getMove(grid,x,y)));
+                        creatureList.add((Creature)grid[x][y]);
                     }
                 }
             }
         }
 
-        //sorts moves by speed, so faster creatures, move first
-        sortMoves();
-    }
-
-    //Order by fastest.
-    public void sortMoves(){
-        Collections.sort(moveList, new Comparator<Pair<Creature,Point>>(){
+        //sort list by speed
+        creatureList.sort(new Comparator<Creature>() {
             @Override
-            public int compare(Pair<Creature, Point> o1, Pair<Creature, Point> o2) {
-                if(o1.getKey().getSpeed() > o2.getKey().getSpeed()){
+            public int compare(Creature o1, Creature o2) {
+                if(o1.getSpeed() > o2.getSpeed()){
                     return -1;
-                }else if(o1.getKey().getSpeed() == o2.getKey().getSpeed()){
+                }
+                else if(o1.getSpeed() == o2.getSpeed()){
                     return 0;
                 }
-                else return 1;
-            }
+                else
+                    return 1;
+                }
         });
 
     }
 
+
     //execution
     public void doMoves(){
-        System.out.println("Creatures = "+moveList.size());
-        for(Pair<Creature, Point> p : moveList){
-            p.getKey().doMove(map.getGrid(), p.getValue());
-            p.getKey().reduceEnergyDieReproduce(map.getGrid());
+        for(Creature c : creatureList){
+            c.getMove(map.getGrid());
+            c.doMove(map.getGrid());
+            c.reduceEnergyDieReproduce(map.getGrid());
         }
     }
 
     public void spawnNewFoods(){
-        map.spawnRandomFood(10);
+        map.spawnRandomFood(MapSettings.foodSpawnEachTurn);
     }
 
 
 
-    public Map getMap() {
+    public GridMap getMap() {
         return map;
     }
 
     public void resetGame()
     {
         System.out.println("resetting game");
-        map = new Map();
-        moveList = new ArrayList<>();
+        map = new GridMap();
+        creatureList.clear();
+    }
+
+    public void printStatistics(){
+        System.out.println("There are "+creatureList.size()+" creatures on map");
+
+        int countA =0;
+        int countB =0;
+        for(int i=0; i<creatureList.size();i++){
+            if(creatureList.get(i).getType().equals("A")){
+                countA++;
+            }
+            if(creatureList.get(i).getType().equals("B")){
+                countB++;
+            }
+        }
+        System.out.println("of which...");
+        System.out.println("A type = "+countA);
+        System.out.println("B type = "+countB);
+
     }
 }
