@@ -37,6 +37,7 @@ public class SimulatorLoop implements Runnable {
             else{
                 simulationController.getMoves();
                 simulationController.doMoves();
+                simulationController.spawnNewFoods();
             }
 
             try {

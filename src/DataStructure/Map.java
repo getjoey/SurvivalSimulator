@@ -12,7 +12,7 @@ public class Map { //square map
     private Random ran;
     private IGameEntity[][] grid;
     private int creatureAmount = Settings.InitialCreatureAmount;
-    private int foodAmount = Settings.InitialFoodAmount;
+    private int initialFoodAmount = Settings.InitialFoodAmount;
 
     public Map(){
         grid = new IGameEntity[Settings.gridSize][Settings.gridSize];
@@ -30,7 +30,7 @@ public class Map { //square map
         }
 
         //place food
-        spawnRandomFood();
+        spawnRandomFood(initialFoodAmount);
 
         /*
         grid[0][0] = new Creature();
@@ -79,10 +79,10 @@ public class Map { //square map
 
     }
 
-    private void spawnRandomFood(){
+    public void spawnRandomFood(int k){
 
         int foodPlaced = 0;
-        while(foodPlaced != foodAmount){
+        while(foodPlaced != k){
             int x=0;
             int y=0;
 

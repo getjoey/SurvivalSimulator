@@ -14,7 +14,7 @@ public class Settings {
     public static int InitialFoodAmount = 1000;
 
 
-    public static int GameLoopSleepTimer = 500; //1000 = 1second
+    public static int GameLoopSleepTimer = 100; //1000 = 1second
 
 
     public static boolean debugOn = false; //prints some useful info

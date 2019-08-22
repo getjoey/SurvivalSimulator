@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="462ef731-7d37-401e-ae1a-11265523a7d5" name="Default Changelist" comment="test">
-      <change beforePath="$PROJECT_DIR$/SurvivalSimulator.iws" beforeDir="false" afterPath="$PROJECT_DIR$/SurvivalSimulator.iws" afterDir="false" />
+    <list default="true" id="462ef731-7d37-401e-ae1a-11265523a7d5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/Controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DataStructure/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataStructure/Map.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Creature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Food.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameLoop/SimulatorLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameLoop/SimulatorLoop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Settings/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Settings/Settings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/SimulationDrawingPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/SimulationDrawingPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/SimulationMainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/SimulationMainFrame.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,14 +17,35 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controllers/Controller.java">
+        <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+            <state relative-caret-position="68">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/GameLoop/SimulatorLoop.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="39" column="53" selection-start-line="39" selection-start-column="53" selection-end-line="39" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2759#2760#0" expanded="true" />
-                <element signature="e#2785#2786#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="653">
+              <caret line="84" column="31" selection-start-line="84" selection-start-column="16" selection-end-line="84" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2212#2213#0" expanded="true" />
+                <element signature="e#2231#2232#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -39,8 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DataStructure/Map.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+            <state relative-caret-position="432">
+              <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -49,89 +64,14 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/SimulationDrawingPane.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Entity/Creature.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
+            <state relative-caret-position="3458">
+              <caret line="218" column="9" lean-forward="true" selection-start-line="218" selection-start-column="9" selection-end-line="218" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#6178#6179#0" expanded="true" />
                 <element signature="e#6206#6207#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GameLoop/SimulatorLoop.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1153#1154#0" expanded="true" />
-                <element signature="e#1197#1198#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Settings/Settings.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="68" selection-start-line="19" selection-start-column="68" selection-end-line="19" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/Food.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
-              <folding>
-                <element signature="e#148#149#0" expanded="true" />
-                <element signature="e#180#181#0" expanded="true" />
-                <element signature="e#364#365#0" expanded="true" />
-                <element signature="e#398#399#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/SimulationMainFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1079#1080#0" expanded="true" />
-                <element signature="e#1104#1105#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -163,12 +103,12 @@
         <option value="$PROJECT_DIR$/src/Settings/Settings.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Entity/Food.java" />
-        <option value="$PROJECT_DIR$/src/GameLoop/SimulatorLoop.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/Controller.java" />
         <option value="$PROJECT_DIR$/src/View/SimulationMainFrame.java" />
-        <option value="$PROJECT_DIR$/src/DataStructure/Map.java" />
         <option value="$PROJECT_DIR$/src/View/SimulationDrawingPane.java" />
         <option value="$PROJECT_DIR$/src/Entity/Creature.java" />
+        <option value="$PROJECT_DIR$/src/DataStructure/Map.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/Controller.java" />
+        <option value="$PROJECT_DIR$/src/GameLoop/SimulatorLoop.java" />
       </list>
     </option>
   </component>
@@ -219,18 +159,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="GameLoop" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="SurvivalSimulator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SurvivalSimulator" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Settings" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SurvivalSimulator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SurvivalSimulator" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -242,7 +170,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566496113765" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566500874649" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -294,13 +222,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14003000" />
+    <option name="totallyTimeSpent" value="15572000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="75" y="23" width="1729" height="1026" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25584182" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25584182" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -309,7 +237,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32922733" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32922733" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32922733" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -339,42 +267,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/GridSpaceType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2759#2760#0" expanded="true" />
-            <element signature="e#2785#2786#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataStructure/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -407,18 +303,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameLoop/SimulatorLoop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1153#1154#0" expanded="true" />
-            <element signature="e#1197#1198#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Food.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -434,11 +318,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Creature.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
+        <state relative-caret-position="3458">
+          <caret line="218" column="9" lean-forward="true" selection-start-line="218" selection-start-column="9" selection-end-line="218" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#6178#6179#0" expanded="true" />
             <element signature="e#6206#6207#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataStructure/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="653">
+          <caret line="84" column="31" selection-start-line="84" selection-start-column="16" selection-end-line="84" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2212#2213#0" expanded="true" />
+            <element signature="e#2231#2232#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameLoop/SimulatorLoop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="39" column="53" selection-start-line="39" selection-start-column="53" selection-end-line="39" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -78,8 +78,14 @@ public class Controller {
     public void doMoves(){
         for(Pair<Creature, Point> p : moveList){
             p.getKey().doMove(map.getGrid(), p.getValue());
+            p.getKey().reduceEnergy(map.getGrid());
         }
     }
+
+    public void spawnNewFoods(){
+        map.spawnRandomFood(10);
+    }
+
 
 
     public Map getMap() {

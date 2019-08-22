@@ -14,6 +14,7 @@ public class Creature implements IGameEntity {
     private int cx;
     private int cy;
     private float speed;
+    private int energyTurnCost;
     private GridSpaceType visionArray[][];
 
 
@@ -23,7 +24,8 @@ public class Creature implements IGameEntity {
 
     private void initializeCreature(){
         energy = 100;
-        vision = 3;
+        vision = 7;
+        energyTurnCost = 2;
         visionArray = new GridSpaceType[vision*2+1][vision*2+1];
         Random ran = new Random();
         speed = ran.nextFloat()+0.1f;
@@ -176,6 +178,9 @@ public class Creature implements IGameEntity {
             grid[move.x][move.y] = this;
             grid[cx][cy] = null;
         }
+        this.cx = move.x;
+        this.cy = move.y;
+
     }
 
     private boolean checkCollisionTrue(Point next, IGameEntity[][] grid){
@@ -200,5 +205,17 @@ public class Creature implements IGameEntity {
 
     public float getSpeed() {
         return speed;
+    }
+
+
+    public void reduceEnergy(IGameEntity[][] grid){
+        //reduce energy each turn
+        energy -= energyTurnCost;
+
+        //die
+        if(energy <=0){
+            System.out.println("dead");
+            grid[cx][cy] = null;
+        }
     }
 }
