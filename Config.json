@@ -1,0 +1,34 @@
+{
+"creatures":
+    {
+        "A":
+        {
+            "initialAmount" : 50,
+            "initialEnergy" : 100,
+            "vision" : 15,
+            "energyTurnCost" : 3,
+            "reproductionChance" : 0.02,
+            "baseSpeed" : 0.8,
+            "color"	: "05178b5"
+        },
+        "B":
+        {
+            "initialAmount" : 10,
+            "initialEnergy" : 100,
+            "vision" : 4,
+            "energyTurnCost" : 1,
+            "reproductionChance" : 0.05,
+            "baseSpeed" : 0.3,
+            "color"	: "0ba1446"
+        }
+
+    }
+
+
+}
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+{
+    "map":
+    {
+        ...
+    },
+    "creatures":
+    {
+        "A":
+        {
+            "initialAmount" : 30,
+            "initialEnergy" : 100,
+            "vision" : 10,
+            "energyTurnCost" : 2,
+            "reproductionChance" : 0.01,
+            "baseSpeed" : 0.5,
+            "color"	: "blue"
+        },
+        "B":
+        {
+            "initialAmount" : 30,
+            "initialEnergy" : 100,
+            "vision" : 4,
+            "energyTurnCost" : 1,
+            "reproductionChance" : 0.01,
+            "baseSpeed" : 0.5,
+            "color"	: "red"
+        }
+
+    },
+    "simulations":
+    {
+        "basic":
+        {
+            "A":
+            {
+                "spawnRate": 200,
+                "initialCount": 20
+            },
+            "B":
+            {
+                "spawnRate: 50
+            }
+        }
+    }
+}
