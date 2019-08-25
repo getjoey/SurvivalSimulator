@@ -10,9 +10,10 @@ public class CreatureFactory {
     }
 
     public Creature makeCreature(String type){
-        Creature c = new Creature();
+
+        Creature c = null;
         if(type.equals("A")){
-            c.initializeCreature(CreatureASettings.initialEnergy,
+            c = new Creature(CreatureASettings.initialEnergy,
                     CreatureASettings.vision,
                     CreatureASettings.energyTurnCost,
                     CreatureASettings.reproductionChance,
@@ -21,16 +22,16 @@ public class CreatureFactory {
                     "A");
 
         }
-        if(type.equals("B")){
-            c.initializeCreature(CreatureBSettings.initialEnergy,
+        else if(type.equals("B")){
+            c = new Creature(CreatureBSettings.initialEnergy,
                     CreatureBSettings.vision,
                     CreatureBSettings.energyTurnCost,
                     CreatureBSettings.reproductionChance,
                     CreatureBSettings.baseSpeed,
                     CreatureBSettings.color,
                     "B");
-        }
 
+        }
 
         return c;
     }

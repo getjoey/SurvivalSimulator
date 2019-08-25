@@ -25,11 +25,7 @@ public class Creature implements IGameEntity {
         this.cx = x;
         this.cy = y;
     }
-    public Creature(){
-
-    }
-
-    public void initializeCreature(int e, int v, int etc, float rc, float bs, Color c, String t){
+    public Creature(int e, int v, int etc, float rc, float bs, Color c, String t){
         ran = new Random();
 
         initialEnergy = e;
@@ -235,8 +231,7 @@ public class Creature implements IGameEntity {
     public void reproduce(IGameEntity[][] grid){
         //copy the genes
         //place new creature//next to parent.
-        Creature baby = new Creature();
-        baby.initializeCreature(initialEnergy,vision,energyTurnCost,reproductionChance,baseSpeed,color,type);
+        Creature baby = new Creature(initialEnergy,vision,energyTurnCost,reproductionChance,baseSpeed,color,type);
 
         //find some spot around it thats free
         Point a = findPointAroundMe(GridSpaceType.F);

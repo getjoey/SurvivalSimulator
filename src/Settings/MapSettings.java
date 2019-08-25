@@ -10,8 +10,8 @@ public class MapSettings {
     public static boolean gridDisplayOn = true;
     public static boolean drawVisionOn = false;
 
-    public static final int InitialFoodAmount = 1000;
-    public static int foodSpawnEachTurn = 10;
+    public static final int InitialFoodAmount = 100;
+    public static int foodSpawnEachTurn = 5;
 
     public static int GameLoopSleepTimer = 100; //1000 = 1second
 

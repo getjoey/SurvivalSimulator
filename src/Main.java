@@ -6,6 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+        /*
         //Gui
         SimulationMainFrame View = new SimulationMainFrame();
 
@@ -16,6 +17,7 @@ public class Main {
         //thread -Gameloop
         Thread threadGL = new Thread (SimulatorLoop.getInstance());
         threadGL.start();
+        */
 
 
     }
