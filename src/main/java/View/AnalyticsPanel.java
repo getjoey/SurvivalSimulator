@@ -33,19 +33,24 @@ public class AnalyticsPanel extends JPanel implements Runnable{
         double perA = ((double)amountA/(double)total)*100;
         double perB = ((double)amountB/(double)total)*100;
         //System.out.println(perA+","+perB);
-
+        int offSet =0;
+        if((int)perA ==0 || (int)perB ==0){
+            offSet=1;
+        }
 
         //draw A
         g.setColor(dataReader.getColorA());
-        g.fillRect(10,10,((int)perA)*2,40);
+        g.fillRect(10,10,(((int)perA)*2)+offSet,40);
         g.setColor(Color.black);
-        g.drawString("A",3,15);
+        g.drawString("A",0,15);
 
         //draw B
         g.setColor(dataReader.getColorB());
-        g.fillRect(10,60,((int)perB)*2,40);
+        g.fillRect(10,60,(((int)perB)*2)+offSet,40);
         g.setColor(Color.black);
-        g.drawString("B",3,65);
+        g.drawString("B",0,65);
+
+        g.drawString("Total Creatures = "+total,200,150);
 
     }
 

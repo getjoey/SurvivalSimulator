@@ -70,16 +70,18 @@ public class JSONrw {
     public int getThreadTimer(){
         JSONParser jsonParser = new JSONParser();
         JSONObject configDataLive = null;
+        int threadTimer =  100;
 
         try (FileReader reader = new FileReader("Config.json")) {
             //Read JSON file
             Object obj = jsonParser.parse(reader);
 
             configDataLive = (JSONObject) obj;
+            threadTimer =  Integer.parseInt(configDataLive.get("threadTimer").toString());
         }catch(Exception e){
-
+            threadTimer = Integer.parseInt(configData.get("threadTimer").toString());
         }
-        int threadTimer =  Integer.parseInt(configDataLive.get("threadTimer").toString());
+
         return threadTimer;
     }
 

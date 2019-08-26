@@ -13,7 +13,8 @@ public class Creature implements IGameEntity {
     private int vision; //vision is its range of sight, ie 5 would be 5 grid blocks in every direction
     private int cx; //current x pos on grid
     private int cy; //current y pos on grid
-    private float baseSpeed; //determines turn order
+    private float baseSpeed;
+    private float realSpeed; //determines turn order
     private int energyTurnCost; //cost of energy each turn (tick of gameloop)
     private float reproductionChance; //chance to reproduce
     private Color color;
@@ -36,7 +37,8 @@ public class Creature implements IGameEntity {
         visionArray = new GridSpaceType[vision*2+1][vision*2+1];
         color = c;
         type = t;
-        baseSpeed = bs + ((float)ran.nextInt(10))/100;
+        baseSpeed = bs;
+        realSpeed = bs + ((float)ran.nextInt(10))/100;
     }
 
 
@@ -208,7 +210,7 @@ public class Creature implements IGameEntity {
 
 
     public float getSpeed() {
-        return baseSpeed;
+        return realSpeed;
     }
 
 
@@ -233,8 +235,9 @@ public class Creature implements IGameEntity {
         //place new creature//next to parent.
 
         //split energy in half, create a baby with same stats except energy divided in two (like cell division)
-
-        Creature baby = new Creature(this.energy,vision,energyTurnCost,reproductionChance,baseSpeed,color,type);
+        int halfEnergy = (this.energy+1)/2;
+        Creature baby = new Creature(halfEnergy,vision,energyTurnCost,reproductionChance,baseSpeed,color,type);
+        this.energy = halfEnergy;
 
         //find some spot around it thats free
         Point a = findPointAroundMe(GridSpaceType.F);

@@ -2,37 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="462ef731-7d37-401e-ae1a-11265523a7d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/AnalyticsDisplayFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/AnalyticsPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Config.json" beforeDir="false" afterPath="$PROJECT_DIR$/Config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SurvivalSimulator.iws" beforeDir="false" afterPath="$PROJECT_DIR$/SurvivalSimulator.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/CreatureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/GridMapController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataStructure/GridMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataStructure/GridMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Entity/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entity/Creature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entity/CreatureFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entity/CreatureFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameLoop/SimulatorLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameLoop/SimulatorLoop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Settings/CreatureASettings.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Settings/CreatureBSettings.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Settings/JSONrw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Settings/JSONrw.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Settings/MapSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Settings/GeneralSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/SimulationDrawingPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/SimulationDrawingPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/SimulationMainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/SimulationMainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/CreatureController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/CreatureController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/GridMapController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DataStructure/GridMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DataStructure/GridMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Entity/Creature.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Entity/Creature.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Entity/CreatureFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Entity/CreatureFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameLoop/SimulatorLoop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameLoop/SimulatorLoop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Settings/CreatureASettings.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Settings/CreatureBSettings.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Settings/JSONrw.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Settings/JSONrw.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Settings/MapSettings.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/SimulationDrawingPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/SimulationDrawingPane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/SimulationMainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/SimulationMainFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/AnalyticsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/AnalyticsPanel.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -68,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Settings/JSONrw.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="68" column="64" selection-start-line="68" selection-start-column="64" selection-end-line="68" selection-end-column="64" />
+            <state relative-caret-position="381">
+              <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#371#372#0" expanded="true" />
@@ -94,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/View/AnalyticsPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+            <state relative-caret-position="160">
+              <caret line="37" column="21" lean-forward="true" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -109,8 +82,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/View/SimulationDrawingPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-401">
+            <state relative-caret-position="-248">
               <caret line="9" column="69" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="69" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Creature.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="139">
+              <caret line="236" column="111" lean-forward="true" selection-start-line="236" selection-start-column="111" selection-end-line="236" selection-end-column="111" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -169,6 +154,7 @@
     <findStrings>
       <find>system</find>
       <find>System</find>
+      <find>base</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -201,16 +187,16 @@
         <option value="$PROJECT_DIR$/src/main/java/Entity/CreatureFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/Settings/GeneralSettings.java" />
         <option value="$PROJECT_DIR$/src/test/java/test1.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Entity/Creature.java" />
         <option value="$PROJECT_DIR$/src/main/java/GameLoop/SimulatorLoop.java" />
         <option value="$PROJECT_DIR$/src/main/java/View/AnalyticsDisplay.form" />
         <option value="$PROJECT_DIR$/src/main/java/View/AnalyticsDisplay.java" />
         <option value="$PROJECT_DIR$/src/main/java/View/AnaylticsPanel.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controllers/Controller.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Settings/JSONrw.java" />
         <option value="$PROJECT_DIR$/src/main/java/View/AnalyticsDisplayFrame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Entity/Creature.java" />
         <option value="$PROJECT_DIR$/src/main/java/View/AnalyticsPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Settings/JSONrw.java" />
       </list>
     </option>
   </component>
@@ -285,7 +271,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566849174456" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566851618816" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -360,7 +346,7 @@
       <workItem from="1566490857847" duration="4830000" />
       <workItem from="1566749932372" duration="2183000" />
       <workItem from="1566752306094" duration="5767000" />
-      <workItem from="1566843979113" duration="4937000" />
+      <workItem from="1566843979113" duration="7562000" />
     </task>
     <servers />
   </component>
@@ -388,11 +374,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36429000" />
+    <option name="totallyTimeSpent" value="39054000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="89" y="6" width="1729" height="1026" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26482925" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -403,7 +388,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32922733" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32922733" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32922733" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39977604" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -522,16 +507,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Creature.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="235" selection-start-line="235" selection-end-line="235" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/View/AnalyticsDisplay.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
@@ -583,18 +558,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Settings/JSONrw.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="68" column="64" selection-start-line="68" selection-start-column="64" selection-end-line="68" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#371#372#0" expanded="true" />
-            <element signature="e#415#416#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DataStructure/GridMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-27">
@@ -625,9 +588,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entity/Creature.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="236" column="111" lean-forward="true" selection-start-line="236" selection-start-column="111" selection-end-line="236" selection-end-column="111" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/View/SimulationDrawingPane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-401">
+        <state relative-caret-position="-248">
           <caret line="9" column="69" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -637,10 +610,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/View/AnalyticsPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+        <state relative-caret-position="160">
+          <caret line="37" column="21" lean-forward="true" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Settings/JSONrw.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#371#372#0" expanded="true" />
+            <element signature="e#415#416#0" expanded="true" />
           </folding>
         </state>
       </provider>
