@@ -3,27 +3,31 @@ package Controllers;
 import DataStructure.GridMap;
 import Entity.Creature;
 import Entity.IGameEntity;
-import Settings.MapSettings;
+import Settings.GeneralSettings;
+import Settings.JSONrw;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 
 
-public class CreatureController {
+public class Controller {
 
-    private static CreatureController instance = null;
+    private static Controller instance = null;
     private GridMap map;
     private ArrayList<Creature> creatureList;
+    private JSONrw dataReader;
 
 
-    private CreatureController( )
+    private Controller( )
     {
+        dataReader = JSONrw.getInstance();
         map = new GridMap();
         creatureList = new ArrayList<Creature>();
     }
 
-    public static synchronized CreatureController getInstance(){
+    public static synchronized Controller getInstance(){
         if(instance ==null){
-            instance = new CreatureController();
+            instance = new Controller();
         }
       return instance;
     }
@@ -34,9 +38,9 @@ public class CreatureController {
     {
         creatureList.clear();
         IGameEntity[][] grid = map.getGrid();
-        for (int x = 0; x < MapSettings.gridSize; x++)
+        for (int x = 0; x < GeneralSettings.gridSize; x++)
         {
-            for (int y = 0; y < MapSettings.gridSize; y++) {
+            for (int y = 0; y < GeneralSettings.gridSize; y++) {
 
                 if(grid[x][y] != null)
                 {
@@ -76,7 +80,8 @@ public class CreatureController {
     }
 
     public void spawnNewFoods(){
-        map.spawnRandomFood(MapSettings.foodSpawnEachTurn);
+        int foodSpawnEachTurn = Integer.parseInt(dataReader.getMapSettings().get("foodSpawnAmount").toString());
+        map.spawnRandomFood(foodSpawnEachTurn);
     }
 
 
@@ -88,8 +93,9 @@ public class CreatureController {
     public void resetGame()
     {
         System.out.println("resetting game");
-        map = new GridMap();
-        creatureList.clear();
+        dataReader.readConfigData(); //reread config data for changes
+        map = new GridMap(); //reset grid
+        creatureList.clear(); //clear creatures list
     }
 
     public void printStatistics(){
@@ -108,6 +114,23 @@ public class CreatureController {
         System.out.println("of which...");
         System.out.println("A type = "+countA);
         System.out.println("B type = "+countB);
-
+    }
+    public int getAmountA(){
+        int countA =0;
+        for(int i=0; i<creatureList.size();i++){
+            if(creatureList.get(i).getType().equals("A")){
+                countA++;
+            }
+        }
+        return countA;
+    }
+    public int getAmountB(){
+        int countB =0;
+        for(int i=0; i<creatureList.size();i++){
+            if(creatureList.get(i).getType().equals("B")){
+                countB++;
+            }
+        }
+        return countB;
     }
 }

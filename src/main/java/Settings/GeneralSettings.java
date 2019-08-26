@@ -1,6 +1,6 @@
 package Settings;
 
-public class MapSettings {
+public class GeneralSettings {
 
     public static final int gridSize = 100; //100by 100 squares
     public static final int squareSize = 8; //5px
@@ -10,10 +10,7 @@ public class MapSettings {
     public static boolean gridDisplayOn = true;
     public static boolean drawVisionOn = false;
 
-    public static final int InitialFoodAmount = 100;
-    public static int foodSpawnEachTurn = 5;
-
-    public static int GameLoopSleepTimer = 100; //1000 = 1second
+    public static int GameLoopSleepTimer = 0; //1000 = 1second
 
     public static boolean debugOn = false; //prints some useful info
 }

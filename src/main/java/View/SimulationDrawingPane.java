@@ -1,6 +1,6 @@
 package View;
 
-import Controllers.CreatureController;
+import Controllers.Controller;
 import Entity.IGameEntity;
 import Settings.*;
 
@@ -10,10 +10,10 @@ import java.awt.*;
 public class SimulationDrawingPane extends JPanel implements Runnable{
 
     private static SimulationDrawingPane instance = null;
-    private CreatureController simulationCreatureController;
+    private Controller simulationController;
 
     private SimulationDrawingPane() {
-        simulationCreatureController = CreatureController.getInstance();
+        simulationController = Controller.getInstance();
     }
 
     public static synchronized SimulationDrawingPane getInstance() {
@@ -35,11 +35,11 @@ public class SimulationDrawingPane extends JPanel implements Runnable{
         //draw entities on grid
         //drawing top to bottom. towards right
 
-        IGameEntity[][] grid = simulationCreatureController.getMap().getGrid();
-        for (int x = 0; x < MapSettings.gridSize; x++) {
-            for (int y = 0; y < MapSettings.gridSize; y++) {
+        IGameEntity[][] grid = simulationController.getMap().getGrid();
+        for (int x = 0; x < GeneralSettings.gridSize; x++) {
+            for (int y = 0; y < GeneralSettings.gridSize; y++) {
                 if(grid[x][y] != null){
-                    grid[x][y].draw(g, x * MapSettings.squareSize, y * MapSettings.squareSize, MapSettings.squareSize);
+                    grid[x][y].draw(g, x * GeneralSettings.squareSize, y * GeneralSettings.squareSize, GeneralSettings.squareSize);
                 }
 
             }
@@ -49,18 +49,18 @@ public class SimulationDrawingPane extends JPanel implements Runnable{
     //draw grid (optional) //can be removed in settings
     public void drawGrid (Graphics g)
     {
-        if(MapSettings.gridDisplayOn){
-            for (int i = 0; i <= MapSettings.gridSize; i++)
+        if(GeneralSettings.gridDisplayOn){
+            for (int i = 0; i <= GeneralSettings.gridSize; i++)
             {
                 g.setColor(Color.GRAY);
-                g.drawLine((i * MapSettings.squareSize),
+                g.drawLine((i * GeneralSettings.squareSize),
                         0,
-                        (i * MapSettings.squareSize),
-                        (MapSettings.gridSize * MapSettings.squareSize));
+                        (i * GeneralSettings.squareSize),
+                        (GeneralSettings.gridSize * GeneralSettings.squareSize));
                 g.drawLine(0,
-                        (i * MapSettings.squareSize),
-                        (MapSettings.gridSize * MapSettings.squareSize),
-                        (i * MapSettings.squareSize));
+                        (i * GeneralSettings.squareSize),
+                        (GeneralSettings.gridSize * GeneralSettings.squareSize),
+                        (i * GeneralSettings.squareSize));
             }
         }
     }

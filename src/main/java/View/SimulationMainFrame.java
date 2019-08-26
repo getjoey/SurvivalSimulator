@@ -1,7 +1,7 @@
 package View;
 
 import GameLoop.SimulatorLoop;
-import Settings.MapSettings;
+import Settings.GeneralSettings;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,8 +21,8 @@ public class SimulationMainFrame extends JFrame implements KeyListener {
 
     public void initFrame(){
         this.setTitle("Simulator");
-        int size = MapSettings.gridSize* MapSettings.squareSize;
-        this.setSize(size+ MapSettings.paneOffsetX*2,size+ MapSettings.paneOffsetY*2); //square frame
+        int size = GeneralSettings.gridSize* GeneralSettings.squareSize;
+        this.setSize(size+ GeneralSettings.paneOffsetX*2,size+ GeneralSettings.paneOffsetY*2); //square frame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         simulationDrawingPane = SimulationDrawingPane.getInstance();

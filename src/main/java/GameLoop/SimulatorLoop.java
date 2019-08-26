@@ -1,19 +1,22 @@
 package GameLoop;
 
-import Controllers.CreatureController;
-import Settings.MapSettings;
+import Controllers.Controller;
+import Settings.GeneralSettings;
+import Settings.JSONrw;
 import View.SimulationDrawingPane;
 
 
 public class SimulatorLoop implements Runnable {
 
     private static SimulatorLoop instance = null;
-    private CreatureController simulationCreatureController;
+    private Controller simulationController;
     private SimulationDrawingPane drawingPane;
     private int keyPressed = 0;
+    private JSONrw dataReader;
 
     private SimulatorLoop(){
-        simulationCreatureController = CreatureController.getInstance();
+        simulationController = Controller.getInstance();
+        dataReader = JSONrw.getInstance();
         //drawingPane = SimulationDrawingPane.getInstance();
     }
 
@@ -32,23 +35,23 @@ public class SimulatorLoop implements Runnable {
             switch(keyPressed){
                 case 32:{
                     keyPressed = 0;
-                    simulationCreatureController.resetGame();
+                    simulationController.resetGame();
                     break;
                 }
                 case 80:{
                     keyPressed = 0;
-                    simulationCreatureController.printStatistics();
+                    simulationController.printStatistics();
                     break;
                 }
             }
 
-                simulationCreatureController.sortCreaturesBySpeed();
-                simulationCreatureController.doMoves();
-                simulationCreatureController.spawnNewFoods();
+                simulationController.sortCreaturesBySpeed();
+                simulationController.doMoves();
+                simulationController.spawnNewFoods();
 
 
             try {
-                Thread.sleep(MapSettings.GameLoopSleepTimer);
+                Thread.sleep(dataReader.getThreadTimer());
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

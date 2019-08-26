@@ -1,7 +1,5 @@
 package Entity;
 
-import Settings.CreatureASettings;
-import Settings.CreatureBSettings;
 import Settings.JSONrw;
 import org.json.simple.JSONObject;
 
@@ -11,7 +9,7 @@ public class CreatureFactory {
 
     JSONrw dataReader;
     public CreatureFactory(){
-        dataReader = new JSONrw();
+        dataReader = JSONrw.getInstance();;
     }
 
     public Creature makeCreature(String type){
@@ -40,8 +38,7 @@ public class CreatureFactory {
     }
 
     public Color hex2Rgb(String colorStr) {
-        System.out.println(colorStr);
-
+        //System.out.println(colorStr);
         return new Color(
                 Integer.valueOf( colorStr.substring( 1, 3 ), 16 ),
                 Integer.valueOf( colorStr.substring( 3, 5 ), 16 ),

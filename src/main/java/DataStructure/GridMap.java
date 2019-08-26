@@ -5,7 +5,6 @@ import Entity.CreatureFactory;
 import Entity.Food;
 import Entity.IGameEntity;
 import Settings.*;
-import org.json.simple.JSONObject;
 
 import java.util.Random;
 
@@ -17,10 +16,10 @@ public class GridMap { //square map
     private JSONrw dataReader;
 
     public GridMap(){
-        grid = new IGameEntity[MapSettings.gridSize][MapSettings.gridSize];
+        grid = new IGameEntity[GeneralSettings.gridSize][GeneralSettings.gridSize];
         ran = new Random();
         creatureFactory = new CreatureFactory();
-        dataReader = new JSONrw();
+        dataReader = JSONrw.getInstance();
 
         initMap();
     }
@@ -28,11 +27,11 @@ public class GridMap { //square map
 
     private void initMap(){
 
-        //place creatures at edge of map randomly
-        //Creature type A
+        //get data from json config file
         int amountA = Integer.parseInt(dataReader.getCreatureA().get("initialAmount").toString());
         int amountB = Integer.parseInt(dataReader.getCreatureB().get("initialAmount").toString());
 
+        //Creature type A
         for(int i=0; i<amountA; i++){
             spawnRandomCoordAtEdgeOfMap("A");
         }
@@ -42,8 +41,10 @@ public class GridMap { //square map
             spawnRandomCoordAtEdgeOfMap("B");
         }
 
+        //get data from json config file
+        int initAmount = Integer.parseInt(dataReader.getMapSettings().get("initialFoodAmount").toString());
         //place food
-        spawnRandomFood(MapSettings.InitialFoodAmount);
+        spawnRandomFood(initAmount);
 
     }
 
@@ -59,17 +60,17 @@ public class GridMap { //square map
             if(xyAxis == 0)//xaxis is fixed
             {
                 x = ran.nextInt(2); //0 is left side, 1 is right side of grid
-                y = ran.nextInt(MapSettings.gridSize);
+                y = ran.nextInt(GeneralSettings.gridSize);
                 if(x !=0){ //set proper x
-                    x = MapSettings.gridSize-1;
+                    x = GeneralSettings.gridSize-1;
                 }
             }
             else //yaxis is fixed
             {
-                x = ran.nextInt(MapSettings.gridSize);
+                x = ran.nextInt(GeneralSettings.gridSize);
                 y = ran.nextInt(2); //0 is top, 1 is bottom of grid
                 if(y !=0){ //set proper y
-                    y = MapSettings.gridSize-1;
+                    y = GeneralSettings.gridSize-1;
                 }
             }
 
@@ -91,8 +92,8 @@ public class GridMap { //square map
             int x=0;
             int y=0;
 
-            x= ran.nextInt(MapSettings.gridSize-2) + 1; //places food anywhere not on edge of map x-axis
-            y= ran.nextInt(MapSettings.gridSize-2) + 1; //places food anywhere not on edge of map y-axis
+            x= ran.nextInt(GeneralSettings.gridSize-2) + 1; //places food anywhere not on edge of map x-axis
+            y= ran.nextInt(GeneralSettings.gridSize-2) + 1; //places food anywhere not on edge of map y-axis
 
             if(grid[x][y] == null){
                 grid[x][y] = new Food();

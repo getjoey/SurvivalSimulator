@@ -1,6 +1,6 @@
 package Entity;
 
-import Settings.MapSettings;
+import Settings.GeneralSettings;
 
 import java.awt.*;
 import java.util.Random;
@@ -42,7 +42,7 @@ public class Creature implements IGameEntity {
 
     //draws a Blue circle as creature with a Cyan outline
     public void draw(Graphics g,int x , int y, int size){
-        if(MapSettings.drawVisionOn)
+        if(GeneralSettings.drawVisionOn)
         {
             drawVision(g,x,y);
         }
@@ -60,10 +60,10 @@ public class Creature implements IGameEntity {
         {
             for(int j=0; j<visionArray.length; j++)
             {
-                g.fillRect((x/ MapSettings.squareSize+i-vision)* MapSettings.squareSize,
-                        (y/ MapSettings.squareSize+j-vision)* MapSettings.squareSize,
-                        MapSettings.squareSize,
-                        MapSettings.squareSize);
+                g.fillRect((x/ GeneralSettings.squareSize+i-vision)* GeneralSettings.squareSize,
+                        (y/ GeneralSettings.squareSize+j-vision)* GeneralSettings.squareSize,
+                        GeneralSettings.squareSize,
+                        GeneralSettings.squareSize);
             }
         }
     }
@@ -83,7 +83,7 @@ public class Creature implements IGameEntity {
             for(int y=-vision; y<=vision; y++)
             {
                 //its on the map (not out of bounds check)
-                if((cx+x) >=0 && (cx+x) < MapSettings.gridSize && (cy+y)>=0 && (cy+y) < MapSettings.gridSize){
+                if((cx+x) >=0 && (cx+x) < GeneralSettings.gridSize && (cy+y)>=0 && (cy+y) < GeneralSettings.gridSize){
                     if(grid[cx+x][cy+y] instanceof Creature){
                         visionArray[x+vision][y+vision] = GridSpaceType.C; //creature
                     }else if(grid[cx+x][cy+y] instanceof Food){
@@ -134,7 +134,7 @@ public class Creature implements IGameEntity {
         }
 
         if(dist == 0){ //no point was found
-            return new Point(ran.nextInt(MapSettings.gridSize), ran.nextInt(MapSettings.gridSize)); //wander randomly
+            return new Point(ran.nextInt(GeneralSettings.gridSize), ran.nextInt(GeneralSettings.gridSize)); //wander randomly
             //return new Point(MapSettings.gridSize/2, MapSettings.gridSize/2); //go to middle
             //return new Point(cx,cy); //do nothing
         }
@@ -231,7 +231,10 @@ public class Creature implements IGameEntity {
     public void reproduce(IGameEntity[][] grid){
         //copy the genes
         //place new creature//next to parent.
-        Creature baby = new Creature(initialEnergy,vision,energyTurnCost,reproductionChance,baseSpeed,color,type);
+
+        //split energy in half, create a baby with same stats except energy divided in two (like cell division)
+
+        Creature baby = new Creature(this.energy,vision,energyTurnCost,reproductionChance,baseSpeed,color,type);
 
         //find some spot around it thats free
         Point a = findPointAroundMe(GridSpaceType.F);
