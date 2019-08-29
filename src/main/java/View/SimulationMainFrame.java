@@ -21,13 +21,13 @@ public class SimulationMainFrame extends JFrame implements KeyListener {
 
     public void initFrame(){
         this.setTitle("Simulator");
-        int size = GeneralSettings.gridSize* GeneralSettings.squareSize;
-        this.setSize(size+ GeneralSettings.paneOffsetX*2,size+ GeneralSettings.paneOffsetY*2); //square frame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         simulationDrawingPane = SimulationDrawingPane.getInstance();
-        this.getContentPane().add(simulationDrawingPane, BorderLayout.CENTER);
+        this.getContentPane().add(simulationDrawingPane);
         this.setVisible(true);
+        this.pack();
+        //this.setResizable(false);
     }
 
     @Override

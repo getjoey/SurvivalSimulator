@@ -1,23 +1,19 @@
 package GameLoop;
 
-import Controllers.Controller;
-import Settings.GeneralSettings;
+import Controllers.GridMapController;
 import Settings.JSONrw;
-import View.SimulationDrawingPane;
 
 
 public class SimulatorLoop implements Runnable {
 
     private static SimulatorLoop instance = null;
-    private Controller simulationController;
-    private SimulationDrawingPane drawingPane;
+    private GridMapController simulationGridMapController;
     private int keyPressed = 0;
     private JSONrw dataReader;
 
     private SimulatorLoop(){
-        simulationController = Controller.getInstance();
+        simulationGridMapController = GridMapController.getInstance();
         dataReader = JSONrw.getInstance();
-        //drawingPane = SimulationDrawingPane.getInstance();
     }
 
     public static synchronized SimulatorLoop getInstance(){
@@ -35,19 +31,19 @@ public class SimulatorLoop implements Runnable {
             switch(keyPressed){
                 case 32:{
                     keyPressed = 0;
-                    simulationController.resetGame();
+                    simulationGridMapController.resetGame();
                     break;
                 }
                 case 80:{
                     keyPressed = 0;
-                    simulationController.printStatistics();
+                    simulationGridMapController.printStatistics();
                     break;
                 }
             }
 
-                simulationController.sortCreaturesBySpeed();
-                simulationController.doMoves();
-                simulationController.spawnNewFoods();
+                simulationGridMapController.sortCreaturesBySpeed();
+                simulationGridMapController.doMoves();
+                simulationGridMapController.spawnNewFoods();
 
 
             try {

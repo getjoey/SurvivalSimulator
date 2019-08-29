@@ -1,6 +1,6 @@
 package View;
 
-import Controllers.Controller;
+import Controllers.GridMapController;
 import Settings.JSONrw;
 
 import javax.swing.*;
@@ -9,11 +9,11 @@ import java.awt.*;
 public class AnalyticsPanel extends JPanel implements Runnable{
 
     public static AnalyticsPanel instance = null;
-    private Controller simulationController;
+    private GridMapController simulationGridMapController;
     private JSONrw dataReader;
 
     private AnalyticsPanel(){
-        simulationController = Controller.getInstance();
+        simulationGridMapController = GridMapController.getInstance();
         dataReader = JSONrw.getInstance();
     }
 
@@ -27,8 +27,8 @@ public class AnalyticsPanel extends JPanel implements Runnable{
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        int amountA = simulationController.getAmountA();
-        int amountB = simulationController.getAmountB();
+        int amountA = simulationGridMapController.getAmountA();
+        int amountB = simulationGridMapController.getAmountB();
         int total = amountA+amountB+1;
         double perA = ((double)amountA/(double)total)*100;
         double perB = ((double)amountB/(double)total)*100;

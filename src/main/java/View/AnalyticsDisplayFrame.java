@@ -1,8 +1,5 @@
 package View;
 
-import Controllers.Controller;
-import Settings.GeneralSettings;
-
 import javax.swing.*;
 import java.awt.*;
 

@@ -10,24 +10,24 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 
-public class Controller {
+public class GridMapController {
 
-    private static Controller instance = null;
+    private static GridMapController instance = null;
     private GridMap map;
     private ArrayList<Creature> creatureList;
     private JSONrw dataReader;
 
 
-    private Controller( )
+    private GridMapController( )
     {
         dataReader = JSONrw.getInstance();
         map = new GridMap();
         creatureList = new ArrayList<Creature>();
     }
 
-    public static synchronized Controller getInstance(){
+    public static synchronized GridMapController getInstance(){
         if(instance ==null){
-            instance = new Controller();
+            instance = new GridMapController();
         }
       return instance;
     }

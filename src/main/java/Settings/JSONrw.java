@@ -14,7 +14,7 @@ import org.json.simple.parser.ParseException;
 public class JSONrw {
 
     public static JSONrw instance = null;
-    private JSONObject configData;
+    private static JSONObject configData;
     private JSONrw(){
         configData = readConfigData();
     }

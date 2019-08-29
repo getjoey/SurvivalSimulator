@@ -1,6 +1,6 @@
 package View;
 
-import Controllers.Controller;
+import Controllers.GridMapController;
 import Entity.IGameEntity;
 import Settings.*;
 
@@ -10,10 +10,11 @@ import java.awt.*;
 public class SimulationDrawingPane extends JPanel implements Runnable{
 
     private static SimulationDrawingPane instance = null;
-    private Controller simulationController;
+    private GridMapController simulationGridMapController;
 
     private SimulationDrawingPane() {
-        simulationController = Controller.getInstance();
+        this.setPreferredSize(new Dimension(GeneralSettings.gridSize*GeneralSettings.squareSize,GeneralSettings.gridSize*GeneralSettings.squareSize));
+        simulationGridMapController = GridMapController.getInstance();
     }
 
     public static synchronized SimulationDrawingPane getInstance() {
@@ -35,7 +36,7 @@ public class SimulationDrawingPane extends JPanel implements Runnable{
         //draw entities on grid
         //drawing top to bottom. towards right
 
-        IGameEntity[][] grid = simulationController.getMap().getGrid();
+        IGameEntity[][] grid = simulationGridMapController.getMap().getGrid();
         for (int x = 0; x < GeneralSettings.gridSize; x++) {
             for (int y = 0; y < GeneralSettings.gridSize; y++) {
                 if(grid[x][y] != null){
