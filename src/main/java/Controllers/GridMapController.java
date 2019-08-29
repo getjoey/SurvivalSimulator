@@ -15,14 +15,12 @@ public class GridMapController {
     private static GridMapController instance = null;
     private GridMap map;
     private ArrayList<Creature> creatureList;
-    private JSONrw dataReader;
 
 
     private GridMapController( )
     {
-        dataReader = JSONrw.getInstance();
         map = new GridMap();
-        creatureList = new ArrayList<Creature>();
+        creatureList = new ArrayList<>();
     }
 
     public static synchronized GridMapController getInstance(){
@@ -80,7 +78,7 @@ public class GridMapController {
     }
 
     public void spawnNewFoods(){
-        int foodSpawnEachTurn = Integer.parseInt(dataReader.getMapSettings().get("foodSpawnAmount").toString());
+        int foodSpawnEachTurn = Integer.parseInt(JSONrw.getMapSettings().get("foodSpawnAmount").toString());
         map.spawnRandomFood(foodSpawnEachTurn);
     }
 
@@ -93,7 +91,7 @@ public class GridMapController {
     public void resetGame()
     {
         System.out.println("resetting game");
-        dataReader.readConfigData(); //reread config data for changes
+        JSONrw.readConfigData(); //reread config data for changes
         map = new GridMap(); //reset grid
         creatureList.clear(); //clear creatures list
     }

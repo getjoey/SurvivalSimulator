@@ -1,4 +1,5 @@
 import GameLoop.SimulatorLoop;
+import Settings.JSONrw;
 import View.AnalyticsDisplayFrame;
 import View.AnalyticsPanel;
 import View.SimulationDrawingPane;
@@ -10,6 +11,7 @@ public class Main {
     public static void main(String[] args) {
 
 
+        JSONrw.readConfigData(); //initialize data
         //Gui
         SimulationMainFrame simulationMainFrame = new SimulationMainFrame();
         AnalyticsDisplayFrame analyticsDisplayFrame = new AnalyticsDisplayFrame();

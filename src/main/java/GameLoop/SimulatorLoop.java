@@ -9,11 +9,9 @@ public class SimulatorLoop implements Runnable {
     private static SimulatorLoop instance = null;
     private GridMapController simulationGridMapController;
     private int keyPressed = 0;
-    private JSONrw dataReader;
 
     private SimulatorLoop(){
         simulationGridMapController = GridMapController.getInstance();
-        dataReader = JSONrw.getInstance();
     }
 
     public static synchronized SimulatorLoop getInstance(){
@@ -47,7 +45,7 @@ public class SimulatorLoop implements Runnable {
 
 
             try {
-                Thread.sleep(dataReader.getThreadTimer());
+                Thread.sleep(JSONrw.getThreadTimer());
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

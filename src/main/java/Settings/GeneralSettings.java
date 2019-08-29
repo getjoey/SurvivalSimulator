@@ -8,4 +8,6 @@ public class GeneralSettings {
     public static boolean gridDisplayOn = true;
     public static boolean drawVisionOn = false;
 
+    public static boolean creaturesSpawnOnlyAtEdge = false;
+
 }

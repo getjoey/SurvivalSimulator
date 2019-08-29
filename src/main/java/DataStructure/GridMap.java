@@ -13,13 +13,11 @@ public class GridMap { //square map
     private Random ran;
     private IGameEntity[][] grid;
     private CreatureFactory creatureFactory;
-    private JSONrw dataReader;
 
     public GridMap(){
         grid = new IGameEntity[GeneralSettings.gridSize][GeneralSettings.gridSize];
         ran = new Random();
         creatureFactory = new CreatureFactory();
-        dataReader = JSONrw.getInstance();
 
         initMap();
     }
@@ -28,21 +26,33 @@ public class GridMap { //square map
     private void initMap(){
 
         //get data from json config file
-        int amountA = Integer.parseInt(dataReader.getCreatureA().get("initialAmount").toString());
-        int amountB = Integer.parseInt(dataReader.getCreatureB().get("initialAmount").toString());
+        int amountA = Integer.parseInt(JSONrw.getCreatureA().get("initialAmount").toString());
+        int amountB = Integer.parseInt(JSONrw.getCreatureB().get("initialAmount").toString());
+
 
         //Creature type A
         for(int i=0; i<amountA; i++){
-            spawnRandomCoordAtEdgeOfMap("A");
+            if(GeneralSettings.creaturesSpawnOnlyAtEdge){
+                spawnRandomCoordAtEdgeOfMap("A");
+            }
+            else{
+                spawnRandomCoordAnywhereOnMap("A");
+            }
+
         }
 
         //Creature Type B
         for(int i=0; i<amountB; i++){
-            spawnRandomCoordAtEdgeOfMap("B");
+            if(GeneralSettings.creaturesSpawnOnlyAtEdge){
+                spawnRandomCoordAtEdgeOfMap("B");
+            }
+            else{
+                spawnRandomCoordAnywhereOnMap("B");
+            }
         }
 
         //get data from json config file
-        int initAmount = Integer.parseInt(dataReader.getMapSettings().get("initialFoodAmount").toString());
+        int initAmount = Integer.parseInt(JSONrw.getMapSettings().get("initialFoodAmount").toString());
         //place food
         spawnRandomFood(initAmount);
 
@@ -51,7 +61,7 @@ public class GridMap { //square map
     private void spawnRandomCoordAtEdgeOfMap(String type){
         int x =0;
         int y =0;
-        int xyAxis = ran.nextInt(2); //0 is fixed x axis, 1 is fixed yaxis
+        int xyAxis; //0 is fixed x axis, 1 is fixed yaxis
         boolean notFoundSpot = true;
 
         while(notFoundSpot){
@@ -79,16 +89,39 @@ public class GridMap { //square map
                 notFoundSpot = false;
             }
         }
+        spawnCreature(x,y,type);
+
+    }
+
+    private void spawnRandomCoordAnywhereOnMap(String type){
+        int x =0;
+        int y =0;
+        int xyAxis; //0 is fixed x axis, 1 is fixed yaxis
+        boolean notFoundSpot = true;
+
+        while(notFoundSpot){
+            y = ran.nextInt(GeneralSettings.gridSize);
+            x = ran.nextInt(GeneralSettings.gridSize);
+            //check to see if there's already a creature there...
+            if(grid[x][y] == null){
+                notFoundSpot = false;
+            }
+        }
+        spawnCreature(x,y,type);
+    }
+
+    private void spawnCreature(int x, int y, String type){
         grid[x][y] = creatureFactory.makeCreature(type);
         ((Creature)grid[x][y]).setCy(y);
         ((Creature)grid[x][y]).setCx(x);
-
     }
 
     public void spawnRandomFood(int k){
 
         int foodPlaced = 0;
-        while(foodPlaced != k){
+        int currentFaultCount=0;
+        int maxFaultCount = 10000; //this prevents it from going insane if maps full of food... should be fixed later
+        while(foodPlaced != k && maxFaultCount > currentFaultCount){
             int x=0;
             int y=0;
 
@@ -98,7 +131,13 @@ public class GridMap { //square map
             if(grid[x][y] == null){
                 grid[x][y] = new Food();
                 foodPlaced++;
+            }else{
+                currentFaultCount++;
             }
+        }
+        System.out.println(currentFaultCount);
+        if(maxFaultCount<=currentFaultCount){
+            System.out.println("serious faulting occured");
         }
     }
 

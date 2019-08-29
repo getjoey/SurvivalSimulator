@@ -7,9 +7,7 @@ import java.awt.*;
 
 public class CreatureFactory {
 
-    JSONrw dataReader;
     public CreatureFactory(){
-        dataReader = JSONrw.getInstance();;
     }
 
     public Creature makeCreature(String type){
@@ -18,10 +16,10 @@ public class CreatureFactory {
         Creature c = null;
 
         if(type.equals("A")){
-            cData =  dataReader.getCreatureA();
+            cData =  JSONrw.getCreatureA();
         }
         else if(type.equals("B")){
-            cData =  dataReader.getCreatureB();
+            cData =  JSONrw.getCreatureB();
         }
 
         int ie = Integer.parseInt(cData.get("initialEnergy").toString());

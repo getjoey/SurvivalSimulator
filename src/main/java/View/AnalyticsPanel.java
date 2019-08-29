@@ -10,11 +10,9 @@ public class AnalyticsPanel extends JPanel implements Runnable{
 
     public static AnalyticsPanel instance = null;
     private GridMapController simulationGridMapController;
-    private JSONrw dataReader;
 
     private AnalyticsPanel(){
         simulationGridMapController = GridMapController.getInstance();
-        dataReader = JSONrw.getInstance();
     }
 
     public synchronized static AnalyticsPanel getInstance(){
@@ -39,13 +37,13 @@ public class AnalyticsPanel extends JPanel implements Runnable{
         }
 
         //draw A
-        g.setColor(dataReader.getColorA());
+        g.setColor(JSONrw.getColorA());
         g.fillRect(10,10,(((int)perA)*2)+offSet,40);
         g.setColor(Color.black);
         g.drawString("A",0,15);
 
         //draw B
-        g.setColor(dataReader.getColorB());
+        g.setColor(JSONrw.getColorB());
         g.fillRect(10,60,(((int)perB)*2)+offSet,40);
         g.setColor(Color.black);
         g.drawString("B",0,65);
