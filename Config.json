@@ -25,7 +25,7 @@
     },
 "map":
     {
-        "foodSpawnAmount" : 200,
+        "foodSpawnAmount" : 100,
         "initialFoodAmount" : 500
     },
 	
