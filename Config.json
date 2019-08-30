@@ -3,21 +3,21 @@
     {
         "A":
         {
-            "initialAmount" : 100,
+            "initialAmount" : 50,
             "initialEnergy" : 100,
             "vision" : 7,
-            "energyTurnCost" : 6,
+            "energyTurnCost" : 0,
             "reproductionChance" : 0.02,
             "baseSpeed" : 0.5,
             "color"	: "05178b5"
         },
         "B":
         {
-            "initialAmount" : 100,
+            "initialAmount" : 50,
             "initialEnergy" : 100,
-            "vision" : 7,
-            "energyTurnCost" : 6,
-            "reproductionChance" : 0.02,
+            "vision" : 6,
+            "energyTurnCost" : 0,
+            "reproductionChance" : 0.00,
             "baseSpeed" : 0.5,
             "color"	: "0ba1446"
         }
@@ -25,11 +25,11 @@
     },
 "map":
     {
-        "foodSpawnAmount" : 200,
+        "foodSpawnAmount" : 30,
         "initialFoodAmount" : 500
     },
 	
-"threadTimer": 50
+"threadTimer": 100
 
 }
 

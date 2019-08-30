@@ -135,9 +135,9 @@ public class GridMap { //square map
                 currentFaultCount++;
             }
         }
-        System.out.println(currentFaultCount);
+        //System.out.println(currentFaultCount);
         if(maxFaultCount<=currentFaultCount){
-            System.out.println("serious faulting occured");
+            System.out.println("serious faulting occured. check code");
         }
     }
 

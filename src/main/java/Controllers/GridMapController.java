@@ -54,10 +54,10 @@ public class GridMapController {
         creatureList.sort(new Comparator<Creature>() {
             @Override
             public int compare(Creature o1, Creature o2) {
-                if(o1.getSpeed() > o2.getSpeed()){
+                if(o1.getRealSpeed() > o2.getRealSpeed()){
                     return -1;
                 }
-                else if(o1.getSpeed() == o2.getSpeed()){
+                else if(o1.getRealSpeed() == o2.getRealSpeed()){
                     return 0;
                 }
                 else
@@ -68,12 +68,10 @@ public class GridMapController {
     }
 
 
-    //execution
+    //execution... orderded by speed
     public void doMoves(){
         for(Creature c : creatureList){
-            c.getMove(map.getGrid());
-            c.doMove(map.getGrid());
-            c.reduceEnergyDieReproduce(map.getGrid());
+            c.act(map.getGrid());
         }
     }
 
